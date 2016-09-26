@@ -1,0 +1,631 @@
+ * Running on http://0.0.0.0:8000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 199-968-630
+121.134.115.102 - - [21/Aug/2016 15:13:11] "GET / HTTP/1.1" 200 -
+121.134.115.102 - - [21/Aug/2016 15:13:11] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+121.134.115.102 - - [21/Aug/2016 15:13:11] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+121.134.115.102 - - [21/Aug/2016 15:13:11] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+121.134.115.102 - - [21/Aug/2016 15:13:11] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+121.134.115.102 - - [21/Aug/2016 15:13:18] "GET / HTTP/1.1" 200 -
+121.134.115.102 - - [21/Aug/2016 15:13:18] "GET /static/assets/css/bootstrap.css HTTP/1.1" 304 -
+121.134.115.102 - - [21/Aug/2016 15:13:18] "GET /static/assets/css/starter-template.css HTTP/1.1" 304 -
+121.134.115.102 - - [21/Aug/2016 15:13:18] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+121.134.115.102 - - [21/Aug/2016 15:13:18] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 304 -
+121.134.115.102 - - [21/Aug/2016 15:13:19] "GET / HTTP/1.1" 200 -
+121.134.115.102 - - [21/Aug/2016 15:13:19] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+121.134.115.102 - - [21/Aug/2016 15:13:19] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 304 -
+121.134.115.102 - - [21/Aug/2016 15:13:19] "GET /static/assets/css/bootstrap.css HTTP/1.1" 304 -
+121.134.115.102 - - [21/Aug/2016 15:13:19] "GET /static/assets/css/starter-template.css HTTP/1.1" 304 -
+223.33.164.122 - - [21/Aug/2016 17:14:45] "GET / HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:14:45] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:14:45] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:14:45] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:14:45] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:14:54] "GET /select_location HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:15:01] "POST /detail HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:15:01] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:15:01] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 200 -
+/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/werkzeug/filesystem.py:63: BrokenFilesystemWarning: Detected a misconfigured UNIX filesystem: Will use UTF-8 as filesystem encoding instead of 'ascii'
+  BrokenFilesystemWarning)
+223.33.164.122 - - [21/Aug/2016 17:16:00] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-14: ordinal not in range(128)
+223.33.164.122 - - [21/Aug/2016 17:16:01] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:16:01] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:16:01] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:16:01] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 17:16:01] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:48:56] "GET / HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:48:56] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:03] "GET /select_location HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:14] "POST /detail HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:14] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:26] "GET /find_jim_put_name HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:26] "GET /static/imgs/flight.png HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:35] "POST /find_jim HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 37, in find_jim
+    print(jim_data_list)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 16-18: ordinal not in range(128)
+223.33.164.122 - - [21/Aug/2016 22:49:35] "GET /find_jim?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:35] "GET /find_jim?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:35] "GET /find_jim?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:36] "GET /find_jim?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.33.164.122 - - [21/Aug/2016 22:49:36] "GET /find_jim?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+223.33.164.122 - - [22/Aug/2016 01:03:00] "GET / HTTP/1.1" 200 -
+198.211.17.155 - - [22/Aug/2016 05:11:31] code 400, message Bad request syntax ('dream9')
+198.211.17.155 - - [22/Aug/2016 05:11:31] "dream9" HTTPStatus.BAD_REQUEST -
+117.21.191.10 - - [23/Aug/2016 01:49:49] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01\xfc\x03\x03\xe4\x9bj\xb9\xdb\xf7\x1e[\xd1\x0c]B:C\x88\xaaz\xec\xc83\xf6\xa1\xf6No\x1d\x01`\xec\xbbV\xe9\x00\x00p\xc00\xc0,\xc02\xc0.\xc0/\xc0+\xc01\xc0-\x00\xa3\x00\x9f\x00\xa2\x00\x9e\xc0(\xc0$\xc0\x14\xc0')
+117.21.191.10 - - [23/Aug/2016 01:49:49] "  \xfc\xe4\x9bj\xb9\xdb\xf7[\xd1]B:C\x88\xaaz\xec\xc83\xf6\xa1\xf6No`\xec\xbbV\xe9  p\xc00\xc0,\xc02\xc0.\xc0/\xc0+\xc01\xc0- \xa3 \x9f \xa2 \x9e\xc0(\xc0$\xc0\xc0" HTTPStatus.BAD_REQUEST -
+180.233.230.168 - - [23/Aug/2016 09:38:45] "GET / HTTP/1.1" 200 -
+180.233.230.168 - - [23/Aug/2016 09:38:45] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+180.233.230.168 - - [23/Aug/2016 09:38:45] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 304 -
+180.233.230.168 - - [23/Aug/2016 09:38:45] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+180.233.230.168 - - [23/Aug/2016 09:38:45] "GET /static/assets/css/bootstrap.css HTTP/1.1" 304 -
+180.233.230.168 - - [23/Aug/2016 09:39:21] "GET / HTTP/1.1" 200 -
+180.233.230.168 - - [23/Aug/2016 09:39:21] "GET /static/assets/css/bootstrap.css HTTP/1.1" 304 -
+180.233.230.168 - - [23/Aug/2016 09:39:21] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+180.233.230.168 - - [23/Aug/2016 09:39:21] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 304 -
+180.233.230.168 - - [23/Aug/2016 09:39:23] "GET /select_location HTTP/1.1" 200 -
+180.233.230.168 - - [23/Aug/2016 09:39:30] "POST /detail HTTP/1.1" 200 -
+180.233.230.168 - - [23/Aug/2016 09:39:30] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+180.233.230.168 - - [23/Aug/2016 09:39:30] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 304 -
+39.115.19.135 - - [23/Aug/2016 13:55:34] "GET / HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:34] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:34] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:34] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:34] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:35] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:55:43] "GET /select_location HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:45] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:55:50] "POST /detail HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:50] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:50] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:55:51] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:56:34] "POST /done HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:56:34] "GET /static/assets/css/bootstrap.css HTTP/1.1" 304 -
+39.115.19.135 - - [23/Aug/2016 13:56:34] "GET /static/assets/css/starter-template.css HTTP/1.1" 304 -
+39.115.19.135 - - [23/Aug/2016 13:56:34] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+39.115.19.135 - - [23/Aug/2016 13:56:34] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 304 -
+39.115.19.135 - - [23/Aug/2016 13:56:36] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:56:38] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:57:14] "GET / HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:15] "GET /select_location HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:16] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:57:17] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:57:23] "POST /detail HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:23] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 304 -
+39.115.19.135 - - [23/Aug/2016 13:57:23] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 304 -
+39.115.19.135 - - [23/Aug/2016 13:57:27] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:57:38] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-14: ordinal not in range(128)
+39.115.19.135 - - [23/Aug/2016 13:57:38] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:38] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:38] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:38] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:38] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:40] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:41] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:57:49] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-14: ordinal not in range(128)
+39.115.19.135 - - [23/Aug/2016 13:57:49] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:49] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:49] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:49] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:49] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:51] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:57:53] "GET /favicon.ico HTTP/1.1" 404 -
+223.62.216.44 - - [23/Aug/2016 13:58:52] "GET / HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:58:52] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:58:52] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:58:52] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:58:52] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:58:54] "GET /select_location HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:08] "POST /detail HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:08] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:08] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:14] "GET / HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:15] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:15] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:15] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:15] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:16] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 13:59:17] "GET /select_location HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:17] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-13: ordinal not in range(128)
+223.62.216.44 - - [23/Aug/2016 13:59:17] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:17] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:17] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:17] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 13:59:18] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:41] "GET / HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 13:59:43] "GET /select_location HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 14:00:02] "GET / HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 14:00:03] "GET /select_location HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 14:00:15] "POST /detail HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 14:00:15] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 14:00:15] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 14:00:21] "GET /select_location HTTP/1.1" 200 -
+39.115.19.135 - - [23/Aug/2016 14:00:29] "POST /detail HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:00:40] "GET / HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:00:43] "GET /select_location HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:00:47] "POST /detail HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:00:47] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:01:37] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-13: ordinal not in range(128)
+223.62.216.44 - - [23/Aug/2016 14:01:37] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:01:37] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:01:37] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:01:38] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:01:38] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:21] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-13: ordinal not in range(128)
+223.62.216.44 - - [23/Aug/2016 14:20:21] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:21] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:21] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:21] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:21] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:28] "GET / HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:29] "GET /select_location HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:33] "POST /detail HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:33] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:53] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-13: ordinal not in range(128)
+223.62.216.44 - - [23/Aug/2016 14:20:53] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:53] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:53] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:54] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:20:54] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:42] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-14: ordinal not in range(128)
+223.62.216.44 - - [23/Aug/2016 14:43:42] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:42] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:42] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:42] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:42] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:48] "GET / HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:50] "GET /select_location HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:55] "POST /detail HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:43:56] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:05] "GET /select_location HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:07] "GET / HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:26] "GET /select_location HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:31] "POST /detail HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:31] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:47] "GET /find_jim_put_name HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:47] "GET /static/imgs/flight.png HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:53] "POST /find_jim HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 37, in find_jim
+    print(jim_data_list)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 16-18: ordinal not in range(128)
+223.62.216.44 - - [23/Aug/2016 14:49:53] "GET /find_jim?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:53] "GET /find_jim?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:53] "GET /find_jim?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:53] "GET /find_jim?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:49:53] "GET /find_jim?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+223.62.216.44 - - [23/Aug/2016 14:50:08] "POST /find_jim HTTP/1.1" 200 -
+117.21.191.10 - - [23/Aug/2016 18:32:31] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01\xfc\x03\x03R\x84\xce\xed\xcaUg\xd3\xa5\x0f\xe6\xd4\x83\x11\x8fJF\xc4~q1')
+117.21.191.10 - - [23/Aug/2016 18:32:31] "  \xfcR\x84\xce\xed\xcaUg\xd3\xa5\xe6\xd4\x83\x8fJF\xc4~q1 \xd7\x8e\xa5D\x81!>6\x84  p\xc00\xc0,\xc02\xc0.\xc0/\xc0+\xc01\xc0- \xa3 \x9f \xa2 \x9e\xc0(\xc0$\xc0\xc0" HTTPStatus.BAD_REQUEST -
+39.115.19.135 - - [23/Aug/2016 18:37:34] "GET /favicon.ico HTTP/1.1" 404 -
+39.115.19.135 - - [23/Aug/2016 18:57:26] "GET /favicon.ico HTTP/1.1" 404 -
+222.232.52.94 - - [24/Aug/2016 10:02:45] "GET /main/ HTTP/1.1" 404 -
+222.232.52.94 - - [24/Aug/2016 10:02:53] "GET / HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:02:54] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:02:54] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:02:54] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:02:54] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:03:00] "GET /select_location HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:03:11] "GET / HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:03:12] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:03:14] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:03:14] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+222.232.52.94 - - [24/Aug/2016 10:03:14] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:06] "GET / HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:06] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:06] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:06] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:06] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:07] "GET /favicon.ico HTTP/1.1" 404 -
+211.37.8.126 - - [24/Aug/2016 11:04:08] "GET /select_location HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:15] "POST /detail HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:15] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:15] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:52] "POST /done HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 55, in done
+    print("user_name : " + user_name)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 12-14: ordinal not in range(128)
+211.37.8.126 - - [24/Aug/2016 11:04:53] "GET /done?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:53] "GET /done?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:53] "GET /done?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:53] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:53] "GET /done?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:04:53] "GET /done?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/home/carry/projects/jimcarry_server/src/server.py', reloading
+user_name : rty
+[]
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 199-968-630
+211.37.8.126 - - [24/Aug/2016 11:06:08] "POST /done HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:06:14] "GET / HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:07:07] "GET /select_location HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:07:13] "GET / HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:07:14] "GET /select_location HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:07:16] "POST /detail HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:07:26] "POST /done HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 11:07:35] "GET / HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:38] "GET / HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:38] "GET /static/assets/css/bootstrap.css HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:38] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+223.38.8.236 - - [24/Aug/2016 11:10:38] "GET /static/assets/css/starter-template.css HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:38] "GET /static/assets/js/bootstrap.min.js HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:40] "GET /find_jim_put_name HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:40] "GET /static/assets/css/bootstrap-theme.min.css HTTP/1.1" 304 -
+223.38.8.236 - - [24/Aug/2016 11:10:40] "GET /static/imgs/flight.png HTTP/1.1" 200 -
+/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/werkzeug/filesystem.py:63: BrokenFilesystemWarning: Detected a misconfigured UNIX filesystem: Will use UTF-8 as filesystem encoding instead of 'ascii'
+  BrokenFilesystemWarning)
+223.38.8.236 - - [24/Aug/2016 11:10:44] "POST /find_jim HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 2000, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1991, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1567, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1988, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1641, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1544, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1639, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/carry/projects/jimcarry_server/envJCS/lib/python3.5/site-packages/flask/app.py", line 1625, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/carry/projects/jimcarry_server/src/server.py", line 37, in find_jim
+    print(jim_data_list)
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 16-18: ordinal not in range(128)
+223.38.8.236 - - [24/Aug/2016 11:10:44] "GET /find_jim?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:44] "GET /find_jim?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:44] "GET /find_jim?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:45] "GET /find_jim?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:10:45] "GET /find_jim?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+ * Detected change in '/home/carry/projects/jimcarry_server/src/server.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger pin code: 199-968-630
+223.38.8.236 - - [24/Aug/2016 11:11:40] "POST /find_jim HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:11:57] "GET / HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:11:58] "GET /select_location HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:12:02] "POST /detail HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:12:02] "GET /static/assets/modules/camera/camera.js HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:12:02] "GET /static/assets/modules/html5-qrcode/jsqrcode-combined.min.js HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:25:39] "GET / HTTP/1.1" 200 -
+223.38.8.236 - - [24/Aug/2016 11:25:39] "GET /apple-touch-icon-120x120-precomposed.png HTTP/1.1" 404 -
+223.38.8.236 - - [24/Aug/2016 11:25:39] "GET /apple-touch-icon-120x120.png HTTP/1.1" 404 -
+223.38.8.236 - - [24/Aug/2016 11:25:40] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+223.38.8.236 - - [24/Aug/2016 11:25:40] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+223.38.8.236 - - [24/Aug/2016 11:25:40] "GET /favicon.ico HTTP/1.1" 404 -
+223.38.8.236 - - [24/Aug/2016 11:25:40] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+223.38.8.236 - - [24/Aug/2016 11:25:40] "GET /favicon.ico HTTP/1.1" 404 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET / HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET /favicon.ico HTTP/1.1" 404 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET /favicon.ico HTTP/1.1" 404 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET / HTTP/1.1" 200 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+211.37.8.126 - - [24/Aug/2016 14:25:59] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+139.162.45.31 - - [24/Aug/2016 14:32:20] code 400, message Bad HTTP/0.9 request type ('\x04\x01')
+139.162.45.31 - - [24/Aug/2016 14:32:20] "      " HTTPStatus.BAD_REQUEST -
+124.53.103.42 - - [25/Aug/2016 08:04:27] "GET / HTTP/1.0" 200 -
+211.37.8.126 - - [25/Aug/2016 21:34:17] "GET / HTTP/1.1" 200 -
+211.37.8.126 - - [25/Aug/2016 21:34:18] "GET /favicon.ico HTTP/1.1" 404 -
+211.37.8.126 - - [25/Aug/2016 21:34:18] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+211.37.8.126 - - [25/Aug/2016 21:34:18] "GET /favicon.ico HTTP/1.1" 404 -
+211.37.8.126 - - [25/Aug/2016 21:34:18] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+211.37.8.126 - - [25/Aug/2016 21:34:18] "GET / HTTP/1.1" 200 -
+211.37.8.126 - - [25/Aug/2016 21:34:18] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+211.37.8.126 - - [25/Aug/2016 21:34:18] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+175.211.174.25 - - [25/Aug/2016 21:36:15] "GET / HTTP/1.0" 200 -
+118.193.22.197 - - [26/Aug/2016 20:18:59] code 400, message Bad request version ('Qa\xa8\x91X\xf1?\xfb\x97\xecU\xddM/\xc0_Y=N5\xfas\x00\x00\x88\xc00\xc0,\xc0(\xc0$\xc0\x14\xc0')
+118.193.22.197 - - [26/Aug/2016 20:18:59] "" \xb9\xb0\xf5\xbev\xf5\x92+\xcbQa\xa8\x91X\xf1?\xfb\x97\xecU\xddM/\xc0_Y=N5\xfas  \x88\xc00\xc0,\xc0(\xc0$\xc0\xc0" HTTPStatus.BAD_REQUEST -
+118.193.22.197 - - [26/Aug/2016 20:19:03] "GET / HTTP/1.1" 200 -

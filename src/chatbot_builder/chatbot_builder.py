@@ -9,10 +9,12 @@ from pprint import pprint
 from modules.query_classifier import QueryClassifier
 from modules.various_utils import generateLogger, get_time_prefix
 
-logger = generateLogger("./chatbot_builder.log","chatbot_builder")
+#logger = generateLogger("./chatbot_builder.log","chatbot_builder")
 story_dir_path = os.environ['CE_SRC']+'/data/story'
-query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/'+get_time_prefix()+'_query_classifier.pickle'
-story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/'+get_time_prefix()+'_story_type_dict_dict.pickle'
+query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/query_classifier.pickle'
+story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/story_type_dict_dict.pickle'
+#query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/'+get_time_prefix()+'_query_classifier.pickle'
+#story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/'+get_time_prefix()+'_story_type_dict_dict.pickle'
 
 class ChatbotBuilder(object):
 
@@ -27,25 +29,7 @@ class ChatbotBuilder(object):
 
         self.query_classifier = None
 
-
-    def parse_story(self,story):
-        pass
-
     def build_stories(self):
-        
-        # train query classifier 
-        # read stories
-
-        #story_path_list = [story_dir_path+'/'+ story for story in os.listdir(story_dir_path) if story[-7:] == '.pickle'] 
-        #
-        #print(story_path_list)
-
-        #story_list = []
-
-        #for story_path in story_path_list:
-        #    with open(story_path, "rb") as f:
-        #        story = pickle.load(f)
-        #        story_list.append(story)
 
         story_path_list = [story_dir_path+'/'+ story for story in os.listdir(story_dir_path) if story[-5:] == '.json'] 
         
@@ -154,7 +138,6 @@ class ChatbotBuilder(object):
 
         pprint(story)
 
-
         # save story
         save_path_pickle =story_dir_path+"/"+story['target_function']+".pickle" 
         save_path_json =story_dir_path+"/"+story['target_function']+".json" 
@@ -164,7 +147,6 @@ class ChatbotBuilder(object):
         
         with open(save_path_json, "wt") as f:
             f.write(str(story).replace("'",'"'))
-
 
 
 def get_weather(location, date_time):

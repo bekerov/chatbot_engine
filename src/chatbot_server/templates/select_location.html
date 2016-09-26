@@ -1,0 +1,184 @@
+{% extends "main_base.html" %}
+
+{% block head %}
+
+<!-- set facebook sdk-->
+<script>
+ 
+</script>
+
+<!--google maps -->
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>-->
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt5_3uHBc13-0gpSXdhR9jrDVqLZoIs1Y&callback=initMap">
+</script>
+
+<script>
+var map;
+var selected_spot;
+var spot_list;
+var marker_dict={};
+var info_window_list =[]
+function initMap() {
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 37.558612, lng:126.945669},
+    zoom: 13
+  });
+
+  // marker 
+  $.ajax({
+      url:'./get_spot',
+      success:function(data){
+        //var data = JSON.parse(data)
+        initMarkers(data)
+        spot_list = data['spot_list']
+        getLocation();
+      }
+  })
+
+}
+
+function initMarkers(spot_info){
+  spot_list = spot_info['spot_list'] 
+    for (var key in spot_list){  
+      generateMarker(spot_list[key])
+    }
+}
+
+function generateMarker(spot_info) {
+  spot_id = spot_info['_id']
+  spot_name = spot_info['name']
+  spot_location = spot_info['location']
+
+  var marker = new google.maps.Marker({
+    position: spot_location,
+    title: spot_name
+  });
+
+    marker_dict[spot_id] = marker 
+    marker.setMap(map); 
+    marker.addListener('click', function() {
+        closeAllInfoWindow()
+        selected_spot = this.title
+
+        var info_window = new google.maps.InfoWindow({
+          content: this.title
+        });
+
+
+        info_window.open(map, this); 
+
+        info_window_list.push(info_window)
+
+        map.setCenter(this.position)
+
+        updateCarrySpot(selected_spot)
+
+  });
+
+}
+
+function closeAllInfoWindow(){
+
+    for (var key in info_window_list){
+
+        info_window_list[key].close()
+
+    }
+
+}
+
+
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
+function calcDist(loc_1, loc_2){
+    return Math.sqrt( (loc_1['lat'] - loc_2['lat'])*(loc_1['lat'] - loc_2['lat']) +(loc_1['lng'] - loc_2['lng'])*(loc_1['lng'] - loc_2['lng']))
+}
+
+function showPosition(position) {
+  var lat = position.coords.latitude;
+  var lng = position.coords.longitude;
+
+  var curr_location = {'lat':lat, 'lng':lng}
+
+  var closest_spot = spot_list[0];
+  var min_distance = calcDist(curr_location, spot_list[0]['location']);
+
+  for (var key in spot_list){
+    
+    distance = calcDist(spot_list[key]['location'], curr_location); 
+    if (distance <= min_distance){
+        min_distance = distance;
+        closest_spot = spot_list[key]
+    }
+  }
+
+  map.setCenter(new google.maps.LatLng(closest_spot['location']))
+
+
+  new google.maps.event.trigger(marker_dict[closest_spot['_id']], 'click')
+}
+
+
+function updateCarrySpot(spot_name){
+	carryspot = document.getElementById('carryspot'); 
+	carryspot.innerHTML = spot_name 
+    carryspot.value = spot_name
+
+	carryspot_view = document.getElementById('carryspot_view'); 
+	carryspot_view.innerHTML = spot_name 
+}
+
+
+</script>
+<script>
+   $(document).ready(function(){
+           var windowWidth;
+           var windowHeight;
+           windowWidth = $(document).width();
+           windowHeight = $(document).height();
+           $('#map').height(windowHeight*0.55);
+           $('#map').width("100%");
+
+     }); 
+</script>
+
+<!-- set facebook sdk-->
+{% endblock head %}
+
+{% block main %}
+
+
+    <div id="map"></div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Carry Spot</th>
+              <th id='carryspot_view'></th>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+    <form action="{{ url_for("detail") }}" method="post">
+      <div class="form-group">
+          <input type="hidden" id="carryspot"  name="carryspot" >
+          <input type='submit' class="btn btn-lg btn-info col-xs-12" value='Confirm'/>
+      </div>
+    </form>
+{% endblock main %}

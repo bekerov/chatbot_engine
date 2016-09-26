@@ -1,0 +1,19 @@
+{% extends "main_base.html" %}
+
+{% block head %}
+
+<!-- set facebook sdk-->
+{% endblock head %}
+
+{% block main %}
+
+<img src="{{ url_for("static", filename="imgs/flight.png") }}" width="100%" > <img>
+						
+<form action="{{ url_for("find_jim") }}" method="post">
+      <div class="form-group">
+             <input type="user_name" id="user_name"  name="user_name" >
+      </div>
+
+      <input type='submit' class="btn btn-lg btn-info col-xs-12" value='JimCarry!'/>
+    </form
+{% endblock main %}

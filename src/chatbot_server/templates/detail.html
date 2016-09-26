@@ -1,0 +1,252 @@
+{% extends "main_base.html" %}
+
+{% block head %}
+
+<!-- set facebook sdk-->
+<script>
+ 
+</script>
+
+<!--google maps -->
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>-->
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt5_3uHBc13-0gpSXdhR9jrDVqLZoIs1Y&callback=initMap">
+</script>
+
+<script>
+var map;
+var selected_spot;
+
+var retrieve_time=0
+var take_time_start = 0
+var take_time_end = 0
+
+function initMap() {
+
+  // marker 
+  $.ajax({
+      url:'./get_spot',
+      success:function(data){
+        initAMarker(data['spot_list'])
+      }
+  })
+}
+
+function initAMarker(data){
+
+  var selected_latlng  ;
+  for (var key in data){
+      if ('{{ carryspot }}'==data[key]['name']){
+        selected_latlng = data[key]['location']
+      }
+  }
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: selected_latlng,
+    zoom: 13
+  });
+
+  var selected_marker = new google.maps.Marker({
+    position: selected_latlng,
+  });
+
+  selected_marker.setMap(map);
+}
+
+
+function updateRetrieveTime(){
+    if (retrieve_time ==0){
+      retrieve_time = 1
+      //$('retrieve_time_view').text('21:00pm ~ 3:00am')
+      a = document.getElementById('retrieve_time_view')
+      a.innerHTML = '21:00pm~3:00am'
+      
+      take_time_start = 21
+      take_time_end = 3
+
+      $('#take_time_start').val(15)
+      $('#take_time_end').val(21)
+
+    }else {
+      retrieve_time = 0
+      //$('retrieve_time_view').text('15:00pm ~ 21:00p...m')
+      a = document.getElementById('retrieve_time_view')
+      a.innerHTML ='15:00pm~21:00pm'
+
+      take_time_start = 15
+      take_time_end = 21
+
+      $('#take_time_start').val(15)
+      $('#take_time_end').val(21)
+    }
+}
+
+</script>
+
+<script>
+  function checkEntries(){
+    var user_name = document.getElementById("user_name");    
+    var identifier = document.getElementById("identifier");    
+
+    if (user_name.value==''){
+
+      alert("Sorry Bro!, plz write your name on name field")
+      return false
+    }
+
+    if ( identifier.value == ''){
+
+      alert("Sorry Bro!, plz Capture your QRcode of JimCarry")
+      return false
+    }
+    return true
+  }
+
+
+   $(document).ready(function(){
+          var windowWidth;
+          var windowHeight;
+          windowWidth = $(document).width();
+          windowHeight = $(document).height();
+          $('#map').height(200);
+          $('#map').width("100%");
+          $('#retrieve_time_view').click(updateRetrieveTime);
+          $('#carryspot').val('{{ carryspot }}')
+          $('#take_time_start').val(15)
+          $('#take_time_end').val(21)
+          $('#airport').val('incheon')
+          take_time_start = 15
+          take_time_end = 21
+
+
+          function read(a)
+          {
+            $("#identifier_text").html(a)
+            $('#identifier').val(a)
+            spinner.stop()
+          }
+          qrcode.callback = read 
+
+          function el(id){return document.getElementById(id);} // Get elem by ID
+
+          var canvas  = el("qr-canvas");
+          var context = canvas.getContext("2d");
+
+          function readImage() {
+              if ( this.files && this.files[0] ) {
+                  var FR= new FileReader();
+                  FR.onload = function(e) {
+                    var img = new Image();
+                    img.onload = function() {
+                       context.drawImage(img, 0,0, 3264 ,2448);
+
+                       var spinner_div = document.getElementById('spinner_div')                        
+                       spinner = new Spinner().spin(spinner_div)                       
+                       try{
+
+                           qrcode.decode()
+                        }
+                       catch(err){
+                          alert("QR code recognition fails! Try again!")
+
+                          spinner.stop()
+                       }
+                    };
+                    img.src = e.target.result;
+
+                  };       
+                  FR.readAsDataURL( this.files[0] );
+
+              }
+          }
+
+          el("fileUpload").addEventListener("change", readImage, false);
+     }); 
+
+
+</script>
+
+
+<!-- set facebook sdk-->
+{% endblock head %}
+
+{% block main %}
+
+
+    <div id="map"></div>
+						
+    <div id="spinner_div"></div>
+    <form action="{{url_for("summary")}}" method="post" enctype="multipart/form-data" onsubmit="return checkEntries();">
+      <div class="form-group">
+          <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Carry Spot</th>
+                    <th><a role="button" class="btn btn-lg btn-default col-xs-12" href="{{ url_for("select_location") }}" >{{carryspot}}</a></th>
+                  </tr>
+
+                  <tr>
+                      <th>I'll be at airport </br>between</th>
+                      <th> <a id='retrieve_time_view' class="btn btn-lg btn-default col-xs-12" >15:00pm ~ 21:00pm</a></th>
+                  </tr>
+                  <tr>
+                    <th>The airport is  </th>
+                    <th>Incheon Airport</th>
+                  </tr>
+                  <tr>
+                        <th>Your Name</th>
+                        <th><input type='text' id='user_name' name='user_name'></input></th>
+                  </tr>
+                  <tr>
+                        <th>Identifier</th>
+                        <th id="identifier_text"></th>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <tbody>
+                <!--<tr>
+                  <th>
+                    <input with="30%" type="file" id="take-picture" accept="image/*" name='jim_photo'/>
+                    <img width="30%" src="about:blank" alt="" id="show-picture"/>
+
+
+                  </th>
+                </tr>-->
+                <tr>
+                    <th>
+                        <input type='file' id="fileUpload" />  
+                    </th>
+                </tr>
+                    
+              </tbody>
+
+            </table>
+          </div>
+
+          <input type="hidden" id="take_time_start"  name="take_time_start" >
+          <input type="hidden" id="take_time_end"  name="take_time_end" >
+          <input type="hidden" id="carryspot"  name="carryspot" >
+          <input type="hidden" id="airport"  name="airport" >
+          <input type='hidden' id="identifier" name='identifier'></input>
+          <input type='submit' class="btn btn-lg btn-info col-xs-12" value='JimCarry!'/>
+      </div>
+    </form>
+
+    <script src="{{ url_for("static",filename= "assets/modules/camera/camera.js") }}"></script>
+    <script src="{{ url_for("static",filename= "assets/modules/html5-qrcode/jsqrcode-combined.min.js") }}"></script>
+    <div style="display:none">
+    <canvas id="qr-canvas"  width="3264px" height="2448px" style="background-color:#ffffff;"></canvas>
+    </div>
+{% endblock main %}

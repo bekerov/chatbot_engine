@@ -1,0 +1,42 @@
+{% extends "main_base.html" %}
+
+{% block head %}
+
+<!-- set facebook sdk-->
+{% endblock head %}
+
+{% block main %}
+
+
+    
+        {% for jim_data in jim_data_list %}
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+        {% for key, value in jim_data.items() %}
+        <tr> 
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <a class="btn btn-lg btn-danger col-xs-12" href="{{ url_for("index") }}" role="button">Give BackMy Suitcase!</a>
+            </td>
+        </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        {% endfor %}
+
+
+
+{% endblock main %}

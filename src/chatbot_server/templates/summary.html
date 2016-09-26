@@ -1,0 +1,53 @@
+{% extends "main_base.html" %}
+
+{% block head %}
+
+<!-- set facebook sdk-->
+{% endblock head %}
+
+{% block main %}
+<div align="center">
+<h2>It's Almost Done!</h2>
+<p>Enjoy your last day of trip!</p>
+</div>
+  <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carry Spot</td>
+            <td>{{carryspot}}</td>
+          </tr>
+          <tr>
+            <td>identifier</td>
+            <td>{{identifier}}</td>
+          </tr>
+          <tr>
+            <td>take_time_start</td>
+            <td>{{take_time_start}}</td>
+          </tr>
+          <tr>
+            <td>take_time_end</td>
+            <td>{{take_time_end}}</td>
+          </tr>
+          <tr>
+            <td>airport</td>
+            <td>{{airport}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="8A9ZDZDYNBBWY">
+<input type="submit" name="submit" role="button" class="btn btn-lg btn-danger col-xs-12" value="Payment" ></input>
+
+</form>
+
+{% endblock main %}
