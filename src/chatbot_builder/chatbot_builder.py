@@ -142,8 +142,8 @@ class ChatbotBuilder(object):
         save_path_pickle =story_dir_path+"/"+story['target_function']+".pickle" 
         save_path_json =story_dir_path+"/"+story['target_function']+".json" 
 
-        with open(save_path_pickle, "wb") as f:
-            pickle.dump(story, f)
+        #with open(save_path_pickle, "wb") as f:
+        #    pickle.dump(story, f)
         
         with open(save_path_json, "wt") as f:
             f.write(str(story).replace("'",'"'))
