@@ -167,8 +167,10 @@ def test(chatbot_builder, query):
 
 
 def main():
+    os.system("clear")
     chatbot_builder = ChatbotBuilder()
-    #chatbot_builder.make_story()
+    chatbot_builder.make_story()
+    chatbot_builder.make_story()
     chatbot_builder.build_stories() 
 
     test(chatbot_builder, "오늘 날씨 어때?")

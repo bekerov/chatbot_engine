@@ -1,6 +1,7 @@
 # Author : Sung-ju Kim
 # Email : goddoe2@gmail.com
 import os
+import sys
 from datetime import datetime
 import pickle
 import json
@@ -15,6 +16,7 @@ query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/query_class
 story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/story_type_dict_dict.pickle'
 
 def main():
+    os.system("clear")
     
     # load query_classifier
     query_classifier = QueryClassifier()
@@ -36,8 +38,9 @@ def main():
             story = json.loads(f.read())
             story_dict[story['target_function']] = story
 
-    pprint(story_dict)    
 
+    pprint(story_dict)    
+    print("="*50)
 
     # chatbot start!
     print("안녕!!")
@@ -47,8 +50,17 @@ def main():
         query = input()
         label = query_classifier.classify(query)
         function_name = story_type_dict[int(label)]
-        pprint(story_dict[function_name])
+        #pprint(story_dict[function_name])
 
+        question_list =story_dict[function_name]['question_list'] 
+        for question in question_list :
+            print("-"*25)
+            print(question['question']) 
+            print(question['choice_list']) 
+            print("respose : ", end='')
+            response = input()
+            print("-"*25)
 
+        print("="*50)
 if __name__=="__main__":
     main()
