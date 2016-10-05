@@ -13,8 +13,6 @@ from modules.various_utils import generateLogger, get_time_prefix
 story_dir_path = os.environ['CE_SRC']+'/data/story'
 query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/query_classifier.pickle'
 story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/story_type_dict_dict.pickle'
-#query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/'+get_time_prefix()+'_query_classifier.pickle'
-#story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/'+get_time_prefix()+'_story_type_dict_dict.pickle'
 
 class ChatbotBuilder(object):
 
@@ -96,7 +94,15 @@ class ChatbotBuilder(object):
         parameter_list = []
         for i in range(num_para):
             print("parameter name "+ str(i)+ " : ", end='')
-            parameter_list.append(input())   
+
+            parameter_info = input()
+
+            parameter, parameter_type = parameter_info.split(":")
+
+            parameter_dict = { 'parameter_name': parameter,
+                                'parameter_type': parameter_type
+                                }
+            parameter_list.append(parameter_dict)   
 
         query_list=[]
         print("user say like : ", end='')
@@ -109,9 +115,11 @@ class ChatbotBuilder(object):
 
         question_list=[]
         
-        for i, parameter in enumerate(parameter_list):
+        for i, parameter_dict in enumerate(parameter_list):
             question = {}
-            question['parameter'] = parameter
+            
+            parameter = parameter_dict['parameter_name']
+            question['parameter'] = parameter_dict
 
             print("question for ["+parameter+"] : ", end='')
             question['question'] = input()

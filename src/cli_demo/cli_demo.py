@@ -7,8 +7,12 @@ import pickle
 import json
 from pprint import pprint
 
+import requests
+
+from modules.named_entity_recognizer.named_entity_recognizer import NamedEntityRecognizer
 from modules.query_classifier import QueryClassifier
 from modules.various_utils import generateLogger, get_time_prefix
+
 
 
 story_dir_path = os.environ['CE_SRC']+'/data/story'
@@ -16,6 +20,8 @@ query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/query_class
 story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/story_type_dict_dict.pickle'
 
 def main():
+    
+
     os.system("clear")
     
     # load query_classifier
@@ -38,6 +44,8 @@ def main():
             story = json.loads(f.read())
             story_dict[story['target_function']] = story
 
+    # generate NamedEntityRecognizer
+    named_entity_recognizer = NamedEntityRecognizer()
 
     pprint(story_dict)    
     print("="*50)
@@ -50,17 +58,43 @@ def main():
         query = input()
         label = query_classifier.classify(query)
         function_name = story_type_dict[int(label)]
-        #pprint(story_dict[function_name])
+
+        # recognize named entities
+        entity_dict = named_entity_recognizer.recognize(query)
 
         question_list =story_dict[function_name]['question_list'] 
-        for question in question_list :
-            print("-"*25)
-            print(question['question']) 
-            print(question['choice_list']) 
-            print("respose : ", end='')
-            response = input()
-            print("-"*25)
 
+        answer_dict = {}
+
+        request_string =""
+        request_string += function_name
+
+        for question in question_list :
+            print("-"*50)
+            print(question['question']) 
+            
+            param_type = question['parameter']['parameter_type']
+            param_name = question['parameter']['parameter_name']
+            answer = None
+            if param_type in entity_dict:
+                answer = entity_dict[param_type]
+
+            print(question['choice_list']) 
+            print("response : ", end='')
+
+            if answer == None:
+                response = input()
+            else:
+                response = answer
+                print(response)
+            
+            answer_dict[param_name] = response
+
+        
+        result = requests.get("http://192.168.18.149:6000/"+function_name, params=answer_dict)
+        print(result.json())
+          
         print("="*50)
+
 if __name__=="__main__":
     main()
