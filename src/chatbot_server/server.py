@@ -1,14 +1,27 @@
 #!/usr/bin/env python
+import os
+import pickle
 from flask import Flask, render_template, session, request
 from flask_restful import Resource, Api,reqparse 
 from datetime import datetime
 app = Flask(__name__)
 api = Api(app)
 
+resource_name_list_path =os.environ['CE_SRC']+'/data/chatbot_info/resource_name_list.pickle'
 
-parser = reqparse.RequestParser()
-parser.add_argument('date_time')
-parser.add_argument('location')
+
+
+def init_arg_parser():
+    with open(resource_name_list_path, "rb") as f:
+        resource_name_list = pickle.load(f)
+
+    parser = reqparse.RequestParser()
+    for resource_name in resource_name_list:
+        print(resource_name)
+        parser.add_argument(resource_name)
+    return parser
+
+
 class WeatherProvider(Resource):
     
     def get(self):
@@ -29,8 +42,10 @@ class WeatherProvider(Resource):
         return result_dict
 
 
+parser = init_arg_parser()
+api.add_resource(WeatherProvider, '/get_weather')
+
 def main():
-    api.add_resource(WeatherProvider, '/get_weather')
     app.run(host='0.0.0.0',port=6000, debug=True)
 
 

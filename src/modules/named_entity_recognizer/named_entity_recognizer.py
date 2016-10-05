@@ -33,9 +33,12 @@ def main():
     result = named_entity_recognizer.recognize_date_time("2016년 2월 12일")
     print(result)
 
+    result = named_entity_recognizer.recognize_date_time("내일 대구 광역시 날씨")
+    print(result)
+
     result = named_entity_recognizer.recognize_date_time("이것은 테스트 입니다")
     print(result)
-    result = named_entity_recognizer.recognize_location("대구 광역시 날씨")
+    result = named_entity_recognizer.recognize_location("내일 대구 광역시 날씨")
     print(result)
 
 if __name__=='__main__':

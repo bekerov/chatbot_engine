@@ -13,16 +13,18 @@ from modules.named_entity_recognizer.named_entity_recognizer import NamedEntityR
 from modules.query_classifier import QueryClassifier
 from modules.various_utils import generateLogger, get_time_prefix
 
-
-
 story_dir_path = os.environ['CE_SRC']+'/data/story'
 query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/query_classifier.pickle'
 story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/story_type_dict_dict.pickle'
 
 def main():
-    
-
     os.system("clear")
+
+    # config 
+    http_protocol = "http://" 
+    server_address ="192.168.18.149" 
+    server_port = 6000 
+    server_url = http_protocol+server_address+":"+str(server_port)
     
     # load query_classifier
     query_classifier = QueryClassifier()
@@ -90,9 +92,14 @@ def main():
             
             answer_dict[param_name] = response
 
-        
-        result = requests.get("http://192.168.18.149:6000/"+function_name, params=answer_dict)
-        print(result.json())
+        try:
+            result = requests.get(server_url+"/"+function_name, params=answer_dict)
+            print("*"*50)
+            print(result.json())
+        except Exception as e:
+            print("This function is not implemented yet")
+            print("Please implement RESTful API for ["+function_name+"]")
+
           
         print("="*50)
 

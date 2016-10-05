@@ -13,6 +13,7 @@ from modules.various_utils import generateLogger, get_time_prefix
 story_dir_path = os.environ['CE_SRC']+'/data/story'
 query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/query_classifier.pickle'
 story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/story_type_dict_dict.pickle'
+resource_name_list_path =os.environ['CE_SRC']+'/data/chatbot_info/resource_name_list.pickle'
 
 class ChatbotBuilder(object):
 
@@ -24,6 +25,7 @@ class ChatbotBuilder(object):
 
         self.story_type_dict = {}
         self.reverse_story_type_dict = {}
+        self.resource_name_list= []
 
         self.query_classifier = None
 
@@ -46,6 +48,11 @@ class ChatbotBuilder(object):
         label_list  =[]
 
         for i, story in enumerate(story_list) :
+
+            # add resource_name_list
+            parameter_list = story['parameter_list']
+            for parameter in parameter_list:
+                self.resource_name_list.append(parameter['parameter_name'])
 
             self.story_type_dict[i] = story['target_function']
             self.reverse_story_type_dict['target_function'] = i
@@ -78,6 +85,11 @@ class ChatbotBuilder(object):
                                     }
 
             pickle.dump(story_type_dict_dict, f)
+
+        # save parameter_list
+        self.resource_name_list = list(set(self.resource_name_list))
+        with open(resource_name_list_path, "wb") as f:
+            pickle.dump(self.resource_name_list,f)
 
 
     def make_story(self):

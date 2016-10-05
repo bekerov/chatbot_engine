@@ -98,6 +98,17 @@ def preprocess(query):
     delta = timedelta(days=2)
     query = query.replace("그저께", (today-delta).strftime("%Y년 %m월 %d일"))
 
+    delta = timedelta(days=1)
+    query = query.replace("내일", (today+delta).strftime("%Y년 %m월 %d일"))
+
+    delta = timedelta(days=2)
+    query = query.replace("모래", (today+delta).strftime("%Y년 %m월 %d일"))
+
+    delta = timedelta(days=2)
+    query = query.replace("모레", (today+delta).strftime("%Y년 %m월 %d일"))
+
+
+
 
     synonym_dictionary = { '한':1, '두':2, '세':3, '네':4, '다섯':5, '여섯':6 ,
                             '일곱':7, '여덟':8, '아홉':9, '열':10, '열한':11, '열두':12,
