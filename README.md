@@ -281,7 +281,7 @@ cd $CE_HOME/chatbot_builder
 python3 chatbot_builder.py
 ```
 
-##
-Author : Sung-ju Kim
-Email : sjkim@nomadconnection.com, goddoe2@gmail.com
-Blog : goddoe.github.com
+## Author
++ Author : Sung-ju Kim
++ Email : sjkim@nomadconnection.com, goddoe2@gmail.com
++ Blog : goddoe.github.com
