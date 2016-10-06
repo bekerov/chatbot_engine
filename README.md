@@ -22,6 +22,7 @@ export CE_SRC=$PWD/src
 #### 1. chatbot_builder를 이용하여 story 생성
 
 + story 생성 예제
+
 ```bash
 
 
@@ -69,6 +70,7 @@ ps. @text 또는 @date_picker는 프론트엔드에서 텍스트 필드 혹은 �
 #### 2. 생성된 story는 $CE_HOME/src/data/story/ 디렉토리에 json 형태로 저장됨
 
 + story 디렉토리에 저장된 story의 예 
+
 ```
 story
 ├── get_stock.json
@@ -76,6 +78,7 @@ story
 ```
 
 + 저장된 story의 형식
+
 ```
 # get_weather.json
 
@@ -111,6 +114,7 @@ story
 #### 3. 챗봇이 제공할 기능을 RESTful API 서버를 제작
 
 + 날씨 서비스에 대한 RESTful API 서버의 예
+
 ```
 #!/usr/bin/env python
 import os
@@ -225,6 +229,7 @@ response : 서울
 ## Chatbot Builder
 
 #### 실행
+
 ```bash
 cd $CE_HOME/chatbot_builder
 python3 chatbot_builder.py
