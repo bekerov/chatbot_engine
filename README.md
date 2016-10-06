@@ -13,43 +13,6 @@ export CE_SRC=$PWD/src
 ```
 
 ## 디렉토리 구조
-```
-chatbot_engine
-├── readme.md
-├── requirements.txt
-├── source_it_to_set_envs.sh
-└── src
-    ├── chatbot_builder
-    │   └── chatbot_builder.py
-    ├── chatbot_server
-    │   ├── chatbot_rest_api_server.py
-    │   ├── run_server.sh
-    │   ├── static
-    │   └── templates
-    ├── cli_demo
-    │   └── cli_demo.py
-    ├── data
-    │   ├── chatbot_info
-    │   │   ├── resource_name_list.pickle
-    │   │   └── story_type_dict_dict.pickle
-    │   ├── query_classifier
-    │   │   ├── query_classifier.pickle
-    │   ├── readme.md
-    │   └── story
-    │       ├── get_stock.json
-    │       ├── get_weather.json
-    ├── functions
-    │   └── function_a.py
-    └── modules
-        ├── named_entity_recognizer
-        │   ├── modules
-        │   │   ├── city_recognizer.py
-        │   │   ├── date_time_recognizer.py
-        │   ├── named_entity_recognizer.py
-        ├── query_classifier.py
-        └── various_utils.py
-```
-
 
 
 # Chatbot Engine
