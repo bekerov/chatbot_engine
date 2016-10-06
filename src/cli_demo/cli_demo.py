@@ -21,10 +21,10 @@ def main():
     os.system("clear")
 
     # config 
-    http_protocol = "http://" 
+    protocol = "http://" 
     server_address ="192.168.18.149" 
     server_port = 6000 
-    server_url = http_protocol+server_address+":"+str(server_port)
+    server_url = protocol+server_address+":"+str(server_port)
     
     # load query_classifier
     query_classifier = QueryClassifier()
@@ -99,7 +99,6 @@ def main():
         except Exception as e:
             print("This function is not implemented yet")
             print("Please implement RESTful API for ["+function_name+"]")
-
           
         print("="*50)
 
