@@ -1,8 +1,9 @@
 # Chatbot Engine
 
 ## 데모 동영상
-+ 클릭하시면 Youtube로 이동합니다.
 [![Alt text for your video](http://img.youtube.com/vi/mCoI7CpSBR0/0.jpg)](https://youtu.be/mCoI7CpSBR0)
+
++ 클릭하시면 Youtube로 이동합니다.
 
 
 
