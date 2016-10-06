@@ -1,4 +1,9 @@
+# Chatbot Engine
+
+## 데모 동영상
++ 클릭하시면 Youtube로 이동합니다.
 [![Alt text for your video](http://img.youtube.com/vi/mCoI7CpSBR0/0.jpg)](https://youtu.be/mCoI7CpSBR0)
+
 
 
 ## 환경 설정
@@ -106,7 +111,7 @@ choice : @date_picker
 
 ps. @text 또는 @date_picker는 프론트엔드에서 텍스트 필드 혹은 데이트 픽커를 사용자에게 제공할 수 있도록 한다.
 
-#### 2. 생성된 story는 $CE_HOME/src/data/story/ 디렉토리에 json 형태로 저장됨
+#### 2. 생성된 story는 $CE_HOME/src/data/story/ 디렉토리에 json 형태로 저장
 
 + story 디렉토리에 저장된 story의 예 
 
@@ -144,10 +149,10 @@ story
 }
 ```
 
-+ target_function : story가 궁극적으로 제공할 기능, 함수 이름.
-+ parameter_list : target_function을 실행하기 위한 파라미터 이름과 형식  
-+ query_list : 해당 story를 실행하기 위한 query 리스트, 질의 분류기 학습에 사용됨.
-+ question_list : target_function이 필요한 parameter_list에 대한 정답을 구하기 위한 질문 리스트.
++ target_function : story가 궁극적으로 제공할 기능, 함수 이름
++ parameter_list : target_function을 실행하기 위한 파라미터 이름과 형식
++ query_list : 해당 story를 실행하기 위한 query 리스트, 질의 분류기 학습에 사용
++ question_list : target_function이 필요한 parameter_list에 대한 정답을 구하기 위한 질문 리스트
 
 
 #### 3. 챗봇이 제공할 기능을 RESTful API 서버를 제작
@@ -222,7 +227,7 @@ curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_ti
 {'response': '2016년10월06일 서울의 날씨는 맑음 입니다.', 'code': 200}
 ``` 
 
-+ http://xxx.xxx.xxx.xxx:yyyy/get_weather 에 GET 요청으로 location, date_time에 대한 값을 payload에 채워 요청하면 해당 결과를 반환함     
++ http://xxx.xxx.xxx.xxx:yyyy/get_weather 에 GET 요청으로 location, date_time에 대한 값을 payload에 채워 요청하면 해당 결과를 반환한다. 
 
 #### 4. 완성된 스토리를 제공하는 챗봇
 
@@ -257,7 +262,7 @@ Please implement RESTful API for [get_stock]
 
 ```
 
-+ 현재 몇가지 도시들에 대한 리스트를 가지고있어 해당 도시들의 이름이 있는 경우 도시에 대한 개체명인식을 자동적으로 수행한다. 그래서 아래와 같은 경우 사용자의 입력을 받지않고 스스로 개체명인식을 수행하여 필드를 채워넣는다 
++ 현재 몇가지 도시들에 대한 리스트를 가지고있어 해당 도시들의 이름이 있는 경우 도시에 대한 개체명인식을 자동적으로 수행한다. 그래서 아래와 같은 경우 사용자의 입력을 받지않고 스스로 개체명인식을 수행하여 필드를 채워넣는다.
 
 ```
 어디야?
@@ -276,4 +281,6 @@ python3 chatbot_builder.py
 ```
 
 ##
-
+Author : Sung-ju Kim
+Email : sjkim@nomadconnection.com, goddoe2@gmail.com
+Blog : goddoe.github.com
