@@ -115,6 +115,7 @@ story
 ```
 
 + 저장된 story의 형식
+
 ```
 # get_weather.json
 
