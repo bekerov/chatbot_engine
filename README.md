@@ -1,3 +1,5 @@
+[![Alt text for your video](http://img.youtube.com/vi/mCoI7CpSBR0/0.jpg)](https://youtu.be/mCoI7CpSBR0)
+
 
 ## 환경 설정
 ```bash
