@@ -5,12 +5,11 @@ cd path/to/chatbot_engine
 source ./source_it_to_set_envs.sh
 ```
 
-``` bash
+```bash
 # source_it_to_set_envs.sh
 export PYTHONPATH=$PWD/src:$PYTHONPATH
 export CE_HOME=$PWD
 export CE_SRC=$PWD/src
-
 ```
 
 ## 디렉토리 구조
@@ -149,7 +148,7 @@ story
 #### 3. 챗봇이 제공할 기능을 RESTful API 서버를 제작
 
 + 날씨 서비스에 대한 RESTful API 서버의 예
-```python
+```
 #!/usr/bin/env python
 import os
 import pickle
@@ -251,6 +250,7 @@ Please implement RESTful API for [get_stock]
 ```
 
 + 현재 몇가지 도시들에 대한 리스트를 가지고있어 해당 도시들의 이름이 있는 경우 도시에 대한 개체명인식을 자동적으로 수행한다. 그래서 아래와 같은 경우 사용자의 입력을 받지않고 스스로 개체명인식을 수행하여 필드를 채워넣는다 
+
 ```
 어디야?
 ['서울', '대구', '@text']
