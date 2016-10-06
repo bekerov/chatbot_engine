@@ -60,7 +60,8 @@ chatbot_engine
 #### 1. chatbot_builder를 이용하여 story 생성
 
 + story 생성 예제
-```
+```bash
+
 ==================================================
 make story start!
 target_function (function name) : get_weather
