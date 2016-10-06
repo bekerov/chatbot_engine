@@ -284,4 +284,4 @@ python3 chatbot_builder.py
 ## Author
 + Author : Sung-ju Kim
 + Email : sjkim@nomadconnection.com, goddoe2@gmail.com
-+ Blog : goddoe.github.com
++ Blog : http://goddoe.github.com , http://labsj.tistory.com/ 
