@@ -208,13 +208,15 @@ if __name__ == '__main__':
     main()
 ```   
 
++ 요청의 예
+
 ```
-# 요청의 예
 curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_time=20160901_235959" -X GET
 ```
 
++ 응답의 예
+
 ```json
-# 응답의 예
 {'response': '2016년10월06일 서울의 날씨는 맑음 입니다.', 'code': 200}
 ``` 
 
