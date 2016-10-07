@@ -118,6 +118,7 @@ class ChatbotBuilder(object):
 
         query_list=[]
 
+        print("-"*50)
         print("make user query")
         print("to exit: exit")
         while True:
