@@ -117,11 +117,20 @@ class ChatbotBuilder(object):
             parameter_list.append(parameter_dict)   
 
         query_list=[]
-        print("user say like : ", end='')
-        query = {}
-        query['query']= input()
-        query_list.append(query)
+
+        print("make user query")
+        print("to exit: exit")
+        while True:
+            print("user say like : ", end='')
+            query = {}
+            q = input().strip()
+            if q == 'exit':
+                break 
+
+            query['query']= q
+            query_list.append(query)
         
+
         print("-"*50)
         print("make bot questions\n")
 
