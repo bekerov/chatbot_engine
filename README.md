@@ -1,7 +1,7 @@
 # Chatbot Engine
 
 ## 데모 동영상
-[![Alt text for your video](http://img.youtube.com/vi/mCoI7CpSBR0/0.jpg)](https://youtu.be/mCoI7CpSBR0)
+[![Alt text for your video](http://img.youtube.com/vi/3Rkd1wfuXL4/0.jpg)](https://youtu.be/3Rkd1wfuXL4)
 
 + 클릭하시면 Youtube로 이동합니다.
 
@@ -284,4 +284,4 @@ python3 chatbot_builder.py
 ## Author
 + Author : Sung-ju Kim
 + Email : sjkim@nomadconnection.com, goddoe2@gmail.com
-+ Blog : http://goddoe.github.com , http://labsj.tistory.com/ 
++ Blog : http://goddoe.github.com , http://labsj.tistory.com/
