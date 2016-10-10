@@ -47,7 +47,13 @@ def main():
             story_dict[story['target_function']] = story
 
     # generate NamedEntityRecognizer
-    named_entity_recognizer = NamedEntityRecognizer()
+
+    #path_dict
+    path_dict = { 'stock_dict_path':str(os.environ['CE_SRC'])+"/data/modules/stock_dict_from_db.pickle"
+            
+                }
+
+    named_entity_recognizer = NamedEntityRecognizer(path_dict)
 
     pprint(story_dict)    
     print("="*50)
@@ -92,9 +98,9 @@ def main():
             
             answer_dict[param_name] = response
 
+        print("*"*50)
         try:
             result = requests.get(server_url+"/"+function_name, params=answer_dict)
-            print("*"*50)
             print(result.json())
         except Exception as e:
             print("This function is not implemented yet")

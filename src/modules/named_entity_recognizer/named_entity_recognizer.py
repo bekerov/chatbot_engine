@@ -1,19 +1,25 @@
 from .modules.date_time_recognizer import findDateRangePattern 
 from .modules.city_recognizer import find_city 
+from .modules.stock_name_recognizer import StockNameRecognizer
 
 class NamedEntityRecognizer(object):
 
-    def __init__(self):
-        pass
+    def __init__(self, path_dict=None):
+        self.path_dict = path_dict
+        
+        # initialize objects
+        self.stock_name_recognizer = StockNameRecognizer(path_dict['stock_dict_path'])
 
     def recognize(self, query):
         
         result = { "location":None,
                     "date_time":None,
+                    "stock_name":None,
                     }
 
         result['location'] = self.recognize_location(query)
         result['date_time'] = self.recognize_date_time(query)
+        result['stock_name'] = self.recognize_stock_name(query)
 
         return result
 
@@ -27,6 +33,11 @@ class NamedEntityRecognizer(object):
     def recognize_location(self, query):
         result = find_city(query)
         return result
+
+    def recognize_stock_name(self,query):
+        result = self.stock_name_recognizer.recognize(query)
+        return result
+        
 
 def main():
     named_entity_recognizer = NamedEntityRecognizer()

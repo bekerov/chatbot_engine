@@ -7,7 +7,7 @@ def findDateRangePattern(query):
     
     # preprocessing
     query = preprocess(query)
-    print("response: "+query)
+    #print("response: "+query)
         
     # regx pattern
     
@@ -76,7 +76,7 @@ def findDateRangePattern(query):
         'start' : start,
         'end' :  end
     }
-    print(result_date_range)
+    #print(result_date_range)
     
     return result_date_range
 
