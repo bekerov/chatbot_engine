@@ -22,7 +22,7 @@ def main():
 
     # config 
     protocol = "http://" 
-    server_address ="192.168.18.149" 
+    server_address ="localhost" 
     server_port = 6000 
     server_url = protocol+server_address+":"+str(server_port)
     
