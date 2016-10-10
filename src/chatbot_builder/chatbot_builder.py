@@ -91,7 +91,7 @@ class ChatbotBuilder(object):
         with open(resource_name_list_path, "wb") as f:
             pickle.dump(self.resource_name_list,f)
 
-
+    # it can be replaced with front-end ui
     def make_story(self):
 
         print("="*50)
