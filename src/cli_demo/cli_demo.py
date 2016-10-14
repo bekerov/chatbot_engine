@@ -103,11 +103,11 @@ def main():
             server_url = protocol +story_dict[function_name]['api_server_address']+':'+str(story_dict[function_name]['api_server_port'])
             print(server_url)            
             result = requests.get(server_url+"/"+function_name, params=answer_dict)
-            print(result.json())
+            pprint(result.json())
         except Exception as e:
             print("This function is not implemented yet")
             print("Please implement RESTful API for ["+function_name+"]")
-            print(e)
+            #print(e)
           
         print("="*50)
 

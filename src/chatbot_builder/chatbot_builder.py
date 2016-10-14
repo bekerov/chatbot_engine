@@ -214,7 +214,7 @@ def main():
     while True:
         chatbot_builder.make_story()
         print("="*50)
-        print("if you want to quit? (y/n)")
+        print("continue? (y/n)")
         resp = input()
         if resp == 'n':
             break
