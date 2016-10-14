@@ -24,7 +24,7 @@ def main():
     protocol = "http://" 
     server_address ="localhost" 
     server_port = 6000 
-    server_url = protocol+server_address+":"+str(server_port)
+    #server_url = protocol+server_address+":"+str(server_port)
     
     # load query_classifier
     query_classifier = QueryClassifier()
@@ -100,11 +100,14 @@ def main():
 
         print("*"*50)
         try:
+            server_url = protocol +story_dict[function_name]['api_server_address']+':'+str(story_dict[function_name]['api_server_port'])
+            print(server_url)            
             result = requests.get(server_url+"/"+function_name, params=answer_dict)
             print(result.json())
         except Exception as e:
             print("This function is not implemented yet")
             print("Please implement RESTful API for ["+function_name+"]")
+            print(e)
           
         print("="*50)
 

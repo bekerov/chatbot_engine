@@ -19,9 +19,9 @@ class ChatbotBuilder(object):
 
     def __init__(self):
 
-        self.function_dict = {
-                            "get_weather":get_weather,
-                        }
+        #self.function_dict = {
+        #                    "get_weather":get_weather,
+        #                }
 
         self.story_type_dict = {}
         self.reverse_story_type_dict = {}
@@ -97,6 +97,24 @@ class ChatbotBuilder(object):
         print("="*50)
         print("make story start!")
    
+        print("RESTful API server host address " )
+        print("if you leave it empty then api_server_address is to be 127.0.0.1")
+        print("if you leave port empty then it is to be 6000")
+        print("api_server_address : ",end= '')
+        api_server_address = input()
+        if api_server_address.strip() == '':
+            api_server_address = '127.0.0.1'
+            print(api_server_address)
+        
+        print("Port : ", end = '')
+        api_server_port =input()
+        if api_server_port.strip() == '':
+            api_server_port = 6000
+            print(api_server_port)
+        else:
+            api_server_port = int(api_server_port)
+
+
         print("target_function (function name) : ", end='')
         target_function = input() 
 
@@ -160,6 +178,8 @@ class ChatbotBuilder(object):
             print("-"*25)
 
         story = {
+                    "api_server_address": api_server_address,
+                    "api_server_port": api_server_port,
                     "target_function":target_function,
                     "parameter_list":parameter_list,
                     "query_list":query_list,
@@ -179,14 +199,6 @@ class ChatbotBuilder(object):
             f.write(str(story).replace("'",'"'))
 
 
-def get_weather(location, date_time):
-   
-    print(location)
-    print(date_time)
-
-    return "return weather"
-
-
 def test(chatbot_builder, query):
     result = chatbot_builder.query_classifier.classify(query)
     function_name = chatbot_builder.story_type_dict[int(result)]
@@ -199,13 +211,18 @@ def test(chatbot_builder, query):
 def main():
     os.system("clear")
     chatbot_builder = ChatbotBuilder()
-    chatbot_builder.make_story()
-    #chatbot_builder.make_story()
+    while True:
+        chatbot_builder.make_story()
+        print("="*50)
+        print("if you want to quit? (y/n)")
+        resp = input()
+        if resp == 'n':
+            break
+        
     chatbot_builder.build_stories() 
 
     test(chatbot_builder, "오늘 날씨 어때?")
     test(chatbot_builder, "주식 알려줘 ?")
-    test(chatbot_builder, "테스트?")
 
 
 if __name__ == '__main__':
