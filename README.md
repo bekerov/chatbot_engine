@@ -281,6 +281,74 @@ cd $CE_HOME/chatbot_builder
 python3 chatbot_builder.py
 ```
 
+## Message communication
+
+```
+/POST /chatbotinstance/{userid}
+ {'code' :200,
+  
+  'message' :  {    
+                    'message_type': 'ask', 
+                    'text': '날씨 알구싶어'
+                },
+
+  'parameter' : {}
+}
+
+---
+
+```
+
+```
+
+# user -> chatbot
+
+ {'code' :200,
+  
+  'message' :  {    
+                    'message_type': 'ask', 
+                    'text': '날씨 알구싶어'
+                },
+
+  'parameter' : {}
+}
+
+
+# chatbot -> user
+ {'code' :200,
+  'message' :  {    
+                    'message_type': 'question',
+                    'text': '어디?',
+                    'choice_list': ['서울', '대구', '@text'],
+                }
+
+  'parameter' : {
+                    'location':'None',
+                    'date_time':'None'
+                 }
+  }
+
+
+
+# user -> chatbot
+ {'code' :200,
+  'message' :  {    
+                    'message_type': 'answer',
+                    'text': '서울',
+                }
+  'parameter' : {
+                    'location':'None',
+                    'date_time':'None'
+                 }
+}
+
+
+# chatbot -> user
+ {'code' :200,
+  'message' :  {    
+                    'message_type': 'result',
+```
+
 ## Author
 + Author : Sung-ju Kim
 + Email : sjkim@nomadconnection.com, goddoe2@gmail.com
