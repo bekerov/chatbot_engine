@@ -114,6 +114,8 @@ class ChatbotBuilder(object):
         else:
             api_server_port = int(api_server_port)
 
+        print("additional path")
+        additional_path = input()
 
         print("target_function (function name) : ", end='')
         target_function = input() 
@@ -180,6 +182,7 @@ class ChatbotBuilder(object):
         story = {
                     "api_server_address": api_server_address,
                     "api_server_port": api_server_port,
+                    "additional_path": additional_path,
                     "target_function":target_function,
                     "parameter_list":parameter_list,
                     "query_list":query_list,

@@ -43,11 +43,13 @@ def index():
 @socketio.on('request', namespace='/test')
 def talk(message):
     ret = tcpCliSock.send(message['data'].encode())
+
     print("ret : " + str(ret))
     print("from web :" + message['data'])
     data = tcpCliSock.recv(buff_size).decode()
     print("from cli server : "+  data)
     emit('response',    {'data': data})
+    return {'data': data}
 
 
 @socketio.on('connect', namespace='/test')
@@ -63,4 +65,4 @@ def test_disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app, port=7000,  debug=True)
+    socketio.run(app, port=6050,  debug=True)
