@@ -281,6 +281,101 @@ cd $CE_HOME/chatbot_builder
 python3 chatbot_builder.py
 ```
 
+## Message communication
+
+```
+/POST /chatbotinstance/{userid}
+ {'code' :200,
+  
+  'message' :  {    
+                    'message_type': 'ask', 
+                    'text': '날씨 알구싶어'
+                },
+
+  'parameter' : {}
+}
+
+---
+
+```
+
+```
+
+# user -> chatbot
+
+ {'code' :200,
+  
+  'message' :  {    
+                    'text': '날씨 알구싶어'
+                },
+
+  'parameter' : {}
+}
+
+
+# chatbot -> user
+ {'code' :200,
+  'message' :  {    
+                    'message_type': 'question',
+                    'text': '어디?',
+                    'choice_list': ['서울', '대구', '@text'],
+                }
+
+  'parameter' : {
+                    'location':'None',
+                    'date_time':'None'
+                 }
+  }
+
+
+
+# user -> chatbot
+ {'code' :200,
+  'message' :  {    
+                    'text': '서울',
+                }
+  'parameter' : {
+                    'location':'None',
+                    'date_time':'None'
+                 }
+}
+
+# chatbot -> user
+ {'code' :200,
+  'message' :  {    
+                    'message_type': 'question',
+                    'text': '언제?'
+                }
+  'parameter' : {
+                    'location':'서울',
+                    'date_time':'None'
+                 }
+}
+
+# user -> chatbot
+ {'code' :200,
+  'message' :  {    
+                    'text': '내일',
+                }
+  'parameter' : {
+                    'location':'서울',
+                    'date_time':'None'
+                 }
+}
+
+# chatbot -> user
+ {'code' :200,
+  'message' :  {    
+                    'message_type': 'result',
+                    'text': '서울의 내일의 날씨는 맑음 입니다'
+                }
+  'parameter' : {
+                    'location':'서울',
+                    'date_time':'20161020_000000'
+                 }
+}
+```
+
 ## Author
 + Author : Sung-ju Kim
 + Email : sjkim@nomadconnection.com, goddoe2@gmail.com
