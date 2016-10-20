@@ -197,14 +197,11 @@ class Chatbot(object):
                     'step_idx_max' : self.step_idx_max, 
                     'question_idx' : self.question_idx,
                     'question_idx_max' : self.question_idx_max ,
-
-                    'process' : self.process ,
-
-                    'process' : self.function_name,
+                    'function_name' : self.function_name,
                     'question_list' : self.question_list,
                     'current_story' : self.current_story,
 
-                    'process' : self.process ,
+                    #'process' : self.process ,
                     }
         with open(path, "wb") as f:
             pickle.dump(chatbot_data_dict,f)
@@ -227,6 +224,7 @@ class Chatbot(object):
 
 def main():
     chatbot = Chatbot()
+    chatbot.save("./test")
     while True:
         print(chatbot.talk(input()))
 
