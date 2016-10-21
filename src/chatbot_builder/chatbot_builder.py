@@ -27,17 +27,27 @@ class ChatbotBuilder(object):
 
     def build_stories(self):
 
-        story_path_list = [story_dir_path+'/'+ story for story in os.listdir(story_dir_path) if story[-5:] == '.json'] 
+        #story_path_list = [story_dir_path+'/'+ story for story in os.listdir(story_dir_path) if story[-5:] == '.json'] 
+
+        story_path_list = [story_dir_path+'/'+ story for story in os.listdir(story_dir_path) if story[-7:] == '.pickle'] 
         
         print(story_path_list)
 
         story_list = []
 
+        #for story_path in story_path_list:
+        #    with open(story_path, "rt") as f:
+        #        story = json.loads(f.read())
+        #        story_list.append(story)
+        #        print(story)
+
         for story_path in story_path_list:
-            with open(story_path, "rt") as f:
-                story = json.loads(f.read())
+            with open(story_path, "rb") as f:
+                story = pickle.load(f)
                 story_list.append(story)
                 print(story)
+
+
 
         # make train set
         sentence_list = []
@@ -191,11 +201,12 @@ class ChatbotBuilder(object):
         save_path_pickle =story_dir_path+"/"+story['target_function']+".pickle" 
         save_path_json =story_dir_path+"/"+story['target_function']+".json" 
 
-        #with open(save_path_pickle, "wb") as f:
-        #    pickle.dump(story, f)
+        with open(save_path_pickle, "wb") as f:
+            pickle.dump(story, f)
         
-        with open(save_path_json, "wt") as f:
-            f.write(str(story).replace("'",'"'))
+        #with open(save_path_json, "wt") as f:
+        #    f.write(str(story).replace("'",'"'))
+
 
 
 def test(chatbot_builder, query):
