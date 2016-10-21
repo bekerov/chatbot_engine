@@ -31,6 +31,7 @@ class Chatbot(object):
                                         "get_question" : self.get_question,
                                         "get_result" : self.get_result,
                                         "receive_answer": self.receive_answer,
+                                        "init": self.init,
                                     }
 
         self.protocol = "http://"
@@ -68,7 +69,7 @@ class Chatbot(object):
         self.story_type_dict = story_type_dict
         self.named_entity_recognizer = named_entity_recognizer
 
-    def init(self):
+    def init(self, query=None):
         self.step_idx = 0
         self.step_idx_max = 0
         self.question_idx= 0
@@ -84,7 +85,15 @@ class Chatbot(object):
         self.answer_dict = {}
         self.current_question_parameter = ''
 
+        return "next"
+
     def talk(self, query):
+
+        message = {
+                    'code' : 200,
+                    'message':[],
+                    
+                }
 
         while True :
             current_task = self.process_string_dict[self.process[self.step_idx]]
@@ -93,7 +102,9 @@ class Chatbot(object):
             if msg == 'next' :
                 continue
 
-            return msg
+            message['message'].append(msg) 
+            message['parameter'] = self.answer_dict
+            return message
             
 
     def classify_query(self,query):
@@ -118,7 +129,11 @@ class Chatbot(object):
         for i in range(len(question_list)):
             self.process.append("get_question")
             self.process.append("receive_answer")
-        self.process.append("get_result")
+
+        if len(question_list[-1]['choice_list']) > 0:
+            self.process.append("get_result")
+        else:
+            self.process.append("init")
 
         self.step_idx_max = len(self.process)
         self.question_idx_max = len(question_list)
@@ -154,11 +169,20 @@ class Chatbot(object):
                 self.step_idx += 2
                 return 'next'
 
+            # if this question doesn't have choies
+            if len(current_question['choice_list']) < 1:
 
-            self.question_idx += 1
-            self.step_idx += 1
-            msg['text'] = current_question['question']
-            msg['choice_list'] = current_question['choice_list']
+                self.question_idx += 1
+                self.step_idx += 2
+                msg['text'] = current_question['question']
+                msg['choice_list'] = current_question['choice_list']
+
+            else :
+
+                self.question_idx += 1
+                self.step_idx += 1
+                msg['text'] = current_question['question']
+                msg['choice_list'] = current_question['choice_list']
 
             return msg
 
@@ -167,7 +191,7 @@ class Chatbot(object):
         msg = {
                 'text': '',
                 }
-        
+
         try:
             server_url = self.protocol +self.current_story['api_server_address']+':'+str(self.current_story['api_server_port'])
             if len(self.current_story['additional_path'].strip()) > 0:
@@ -176,7 +200,6 @@ class Chatbot(object):
             result = requests.get(server_url+"/"+self.function_name, params=self.answer_dict)
 
             msg['text'] =str(result.json())  
-            return msg
 
         except Exception as e:
             print("This function is not implemented yet")
@@ -187,9 +210,10 @@ class Chatbot(object):
             print(self.step_idx) 
             msg['text'] = str(e)  
             print(e)
-            return msg
-        finally:
-            self.init()
+
+        self.init()
+
+        return msg
 
     def save(self, path):
         chatbot_data_dict = {
@@ -205,7 +229,7 @@ class Chatbot(object):
                     'answer_dict' : self.answer_dict,
                     'current_question_parameter' : self.current_question_parameter
                     }
-        pprint(chatbot_data_dict)
+        #pprint(chatbot_data_dict)
         with open(path, "wb") as f:
             pickle.dump(chatbot_data_dict,f)
 
@@ -215,7 +239,7 @@ class Chatbot(object):
             with open(path, "rb") as f:
                 chatbot_data_dict = pickle.load(f)
 
-            pprint(chatbot_data_dict)
+            #pprint(chatbot_data_dict)
 
             self.step_idx = chatbot_data_dict['step_idx']
             self.step_idx_max = chatbot_data_dict['step_idx_max']

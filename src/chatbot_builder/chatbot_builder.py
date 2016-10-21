@@ -19,10 +19,6 @@ class ChatbotBuilder(object):
 
     def __init__(self):
 
-        #self.function_dict = {
-        #                    "get_weather":get_weather,
-        #                }
-
         self.story_type_dict = {}
         self.reverse_story_type_dict = {}
         self.resource_name_list= []

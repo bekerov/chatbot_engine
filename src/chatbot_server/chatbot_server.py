@@ -8,12 +8,12 @@ from flask import Flask, render_template, session, request
 from flask_restful import Resource, Api, reqparse
 from datetime import datetime
 
-from chatbot import Chatbot
+from chatbot.chatbot import Chatbot
 app = Flask(__name__)
 api = Api(app)
 
 resource_name_list_path = os.environ['CE_SRC'] + '/data/chatbot_info/resource_name_list.pickle'
-
+chatbot_instance_dir_path = os.environ['CE_SRC'] + '/data/chatbot_instance'
 
 
 def init_arg_parser():
@@ -29,31 +29,33 @@ def init_arg_parser():
 class Chatbot_rest(Resource):
     
     def __init__(self):
-        self.chatbot = Chatbot()
-        self.chatbot_instance_path= "./chatbot_instance.dat"
-        self.chatbot.load(self.chatbot_instance_path)       
+        self.chatbot_instance_path = ''
+        pass
             
+
     def __del__(self):
-        self.chatbot.save(self.chatbot_instance_path)       
-        print("dead")
+        pass
+
 
     def get(self,user_id):
+        user_id, query = user_id.split('_') 
+        print(query)
 
-        user_id = query
+        self.load_chatbot(user_id)
+
         chatbot =self.chatbot
 
         print("receive : " + str(query))
         result = chatbot.talk(query)
         print("response : " + str(result))
 
+        self.save_chatbot()
+
         return result
 
+
     def post(self,user_id):
-        #args = parser.parse_args()
-        #print(args)
-        #query = args['query']
-        #date_time = args['date_time']
-        #query = args['message']['text']
+        self.load_chatbot(user_id)
 
         msg_from_user= dict(request.get_json(force=True))
 
@@ -63,8 +65,21 @@ class Chatbot_rest(Resource):
         msg_to_user['code'] = 200
         msg_to_user['parameter'] = {}
         print("response : " + str(msg_to_user))
+
+        self.save_chatbot()
+
         return msg_to_user
 
+
+    def load_chatbot(self,user_id):
+        self.chatbot_instance_path = chatbot_instance_dir_path + '/'+str(user_id)
+        self.chatbot_instance_path += '.cbinstance'
+
+        self.chatbot = Chatbot()
+        self.chatbot.load(self.chatbot_instance_path)       
+
+    def save_chatbot(self):
+        self.chatbot.save(self.chatbot_instance_path)       
 
 parser = init_arg_parser()
 api.add_resource(Chatbot_rest, '/chatbotinstance/<string:user_id>')

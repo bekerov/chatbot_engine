@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block head %}
+
+<script>
+
+function search(){
+	    
+    var keyword = $("#keyword").val()        
+
+    url = './search/'+keyword
+
+	$.ajax({
+        url:url,
+        success:function(data){
+
+        $('#resume_data_table_head').empty()
+        $('#resume_data_table').empty()
+
+        // fill resume_data_table_head
+        var field_table = ""
+
+        var field_tuple_list = data['field_tuple_list']
+
+        field_table += "<tr>" 
+        for (var key in field_tuple_list){
+            field_table += "<th>"
+            field_table += field_tuple_list[key][0]
+            field_table += "</th>"
+        }
+
+        field_table += "</tr>"
+
+
+	    $("#resume_data_table_head").html(field_table)	
+
+        // fill resume_data_table
+        var result = ""
+
+        var resume_data_list_list = data['resume_data_list_list']
+        
+        for (var key in resume_data_list_list){
+
+            result+= "<tr>" 
+            
+            for (var key_2 in resume_data_list_list[key]){
+                // TODO: 파일인줄 아는 새로운 방법으로 개선
+                if( Number(key_2)+1 == Number(resume_data_list_list[key].length)){
+                    result += '<td><a href="download/'+resume_data_list_list[key][key_2]+'">다운로드</a>' 
+                    result += '</td>'
+                }else{
+                    result += '<td>'+resume_data_list_list[key][key_2] 
+                    result += '</td>'
+                }
+            }
+
+            result+= "</tr>" 
+        }
+	    $("#resume_data_table").html(result)	
+	  }
+	})
+}
+
+
+$(document).ready(function(){
+    $('#search_form').submit(function (event){
+        search()
+        return false
+    }) 		
+})
+
+
+</script>
+
+
+
+{% endblock %}
+
+{% block body %}
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead id="resume_data_table_head">
+        <tr>
+          {% for field, _ in field_tuple_list %}
+          <td height ="10px">{{field}}</td>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody id="resume_data_table">
+        {% for resume_data_list in resume_data_list_list %}
+        <tr height ="10px">
+          {% for data in resume_data_list %}
+              {% if loop.last %}
+                
+              <td height ="10px"><a href="download/{{data}}">다운로드</a></td>
+              {% else %}
+                  <td height ="10px">{{data}}</td>
+              {% endif %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+<script>
+$(document).ready(function (){
+});
+
+</script>
+{% endblock %}

@@ -17,10 +17,12 @@ from flask import Flask, render_template, session, request
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
     close_room, rooms, disconnect
 
+
+from chatbot.chatbot import Chatbot
+
 story_dir_path = os.environ['CE_SRC']+'/data/story'
 query_classifier_path = os.environ['CE_SRC']+'/data/query_classifier/query_classifier.pickle'
 story_type_dict_dict_path =os.environ['CE_SRC']+'/data/chatbot_info/story_type_dict_dict.pickle'
-
 
 async_mode = None
 
@@ -28,13 +30,12 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=async_mode)
 
-host_serv = 'localhost' 
-port_serv = 21571
-buff_size = 2048
-addr_serv = (host_serv, port_serv)
+chatbot_server_protocol = 'http://'
+chatbot_server_host = 'localhost'
+chatbot_server_port = 6070
 
-tcpCliSock = socket(AF_INET, SOCK_STREAM)
-tcpCliSock.connect(addr_serv) 
+chatbot_server_url = chatbot_server_protocol + chatbot_server_host + ':' + str(chatbot_server_port) + '/chatbotinstance'
+                        
 
 @app.route('/')
 def index():
@@ -42,19 +43,33 @@ def index():
 
 @socketio.on('request', namespace='/test')
 def talk(message):
-    ret = tcpCliSock.send(message['data'].encode())
 
-    print("ret : " + str(ret))
     print("from web :" + message['data'])
-    data = tcpCliSock.recv(buff_size).decode()
-    print("from cli server : "+  data)
-    emit('response',    {'data': data})
-    return {'data': data}
+
+    msg_from_user = {
+            'code' : 200,
+            'message':{
+                        'text':''
+                        }
+            }
+
+    
+    url = chatbot_server_url + '/' + '1234'
+
+    msg_from_user['message']['text'] = message['data']
+    msg_to_user= requests.post(url,json=msg_from_user).json()
+    msg_to_user = dict(msg_to_user)
+    print(msg_to_user)
+    msg_to_user['data'] = msg_to_user['message'][0]['text']
+
+    print("from chatbot server : "+  str(msg_to_user))
+
+    emit('response',    msg_to_user)
 
 
 @socketio.on('connect', namespace='/test')
 def test_connect():
-    emit('response', {'data': 'Connected'})
+    #emit('response', {'data': 'Connected'})
     print("connected!!!")
 
 
