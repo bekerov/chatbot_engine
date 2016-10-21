@@ -37,8 +37,9 @@ class Chatbot_rest(Resource):
         self.chatbot.save(self.chatbot_instance_path)       
         print("dead")
 
-    def get(self,query):
+    def get(self,user_id):
 
+        user_id = query
         chatbot =self.chatbot
 
         print("receive : " + str(query))
@@ -59,12 +60,14 @@ class Chatbot_rest(Resource):
         print("receive : " + str(msg_from_user))
         msg = msg_from_user['message']['text']
         msg_to_user = self.chatbot.talk(msg)
+        msg_to_user['code'] = 200
+        msg_to_user['parameter'] = {}
         print("response : " + str(msg_to_user))
         return msg_to_user
 
 
 parser = init_arg_parser()
-api.add_resource(Chatbot_rest, '/chatbotinstance/<string:query>')
+api.add_resource(Chatbot_rest, '/chatbotinstance/<string:user_id>')
 
 
 def main():
