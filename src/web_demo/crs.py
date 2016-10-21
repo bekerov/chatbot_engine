@@ -9,22 +9,11 @@ from flask_restful import Resource, Api, reqparse
 from datetime import datetime
 
 from chatbot import Chatbot
-
 app = Flask(__name__)
 api = Api(app)
 
 resource_name_list_path = os.environ['CE_SRC'] + '/data/chatbot_info/resource_name_list.pickle'
 
-#@app.route('/chatbotinstance/<string:query>', methods =['GET'])
-#def chatbotinstance(query):
-#    print("receive : " + str(query))
-#    chatbot = Chatbot() 
-#    chatbot.load("./test")
-#    result = chatbot.talk(query)
-#    print("response : " + str(result))
-#
-#    return result['text']
-#    #return "test"
 
 
 def init_arg_parser():
@@ -33,7 +22,6 @@ def init_arg_parser():
 
     ps = reqparse.RequestParser()
     for resource_name in resource_name_list:
-        #print(resource_name)
         ps.add_argument(resource_name)
     return ps
 
@@ -52,6 +40,7 @@ class Chatbot_rest(Resource):
     def get(self,query):
 
         chatbot =self.chatbot
+
         print("receive : " + str(query))
         result = chatbot.talk(query)
         print("response : " + str(result))
@@ -73,17 +62,15 @@ class Chatbot_rest(Resource):
         print("response : " + str(msg_to_user))
         return msg_to_user
 
+
 parser = init_arg_parser()
 api.add_resource(Chatbot_rest, '/chatbotinstance/<string:query>')
 
 
 def main():
     app.run(host='0.0.0.0', port=6070, debug=True)
-    #chatbot.save("./test")
-    #chatbot.load("./test")
     #while True:
     #    print(chatbot.talk(input()))
-
 
 
 if __name__ == '__main__':
