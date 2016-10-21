@@ -18,3 +18,4 @@ requests
 Flask_SocketIO
 python-engineio
 python-socketio
+bs4

@@ -55,7 +55,7 @@ def main():
 
     named_entity_recognizer = NamedEntityRecognizer(path_dict)
 
-    pprint(story_dict)    
+    #pprint(story_dict)    
     print("="*50)
 
     # chatbot start!
@@ -100,7 +100,11 @@ def main():
 
         print("*"*50)
         try:
-            server_url = protocol +story_dict[function_name]['api_server_address']+':'+str(story_dict[function_name]['api_server_port'])
+            if len(story_dict[function_name]['additional_path']) > 0:
+                server_url = protocol +story_dict[function_name]['api_server_address']+':'+str(story_dict[function_name]['api_server_port'])+'/'+story_dict[function_name]['additional_path']
+            else:
+                server_url = protocol +story_dict[function_name]['api_server_address']+':'+str(story_dict[function_name]['api_server_port'])
+
             print(server_url)            
             result = requests.get(server_url+"/"+function_name, params=answer_dict)
             pprint(result.json())
