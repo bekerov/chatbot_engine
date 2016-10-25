@@ -225,8 +225,72 @@ curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_ti
 + 응답의 예
 
 ```json
-{'response': '2016년10월06일 서울의 날씨는 맑음 입니다.', 'code': 200}
+{    
+    'code': 200,
+	'template_type':'text',
+
+    'text': '오늘 대구의 날씨는 조금 흐림 입니다'
+}
+
 ``` 
+
+```json
+{    
+    'code': 200,
+    'template_type':'generic'
+
+    'elements':[
+				  {
+					"title":"Welcome to Peter\'s Hats",
+					"item_url":"https://petersfancybrownhats.com",
+					"image_url":"https://petersfancybrownhats.com/company_image.png",
+					"subtitle":"We\'ve got the right hat for everyone.",
+					"buttons":[
+					  {
+						"type":"web_url",
+						"url":"https://petersfancybrownhats.com",
+						"title":"View Website"h
+					  },             
+                      {
+						"type":"web_url",
+						"url":"https://petersfancybrownhats.com",
+						"title":"View Website"h
+					  },            
+					]
+				  }
+				]
+}
+
+``` 
+
+```json
+{    
+    'code': 200,
+    'template_type':'button'
+
+    'text': '다음 둘중 하나 골라보세요',
+
+    "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://petersapparel.parseapp.com",
+                "title":"Show Website"
+              },
+              {
+                "type":"web_url",
+                "url":"https://petersapparel.parseapp.com",
+                "title":"Show Website2"
+              },
+            ]
+}
+
+``` 
+
+## Message communication
+```
+
+```
+
 
 + http://xxx.xxx.xxx.xxx:yyyy/get_weather 에 GET 요청으로 location, date_time에 대한 값을 payload에 채워 요청하면 해당 결과를 반환한다. 
 
@@ -285,14 +349,12 @@ python3 chatbot_builder.py
 
 ```
 /POST /chatbotinstance/{userid}
- {'code' :200,
+{
   
   'message' :  {    
-                    'message_type': 'ask', 
                     'text': '날씨 알구싶어'
                 },
-
-  'parameter' : {}
+ 
 }
 
 ---
@@ -303,18 +365,16 @@ python3 chatbot_builder.py
 
 # user -> chatbot
 
- {'code' :200,
-  
+{
   'message' :  {    
                     'text': '날씨 알구싶어'
-                },
-
-  'parameter' : {}
+                }
 }
 
 
 # chatbot -> user
- {'code' :200,
+{
+  'code' :200,
   'message' :  [{    
                     'message_type': 'question',
                     'text': '어디?',
@@ -330,7 +390,7 @@ python3 chatbot_builder.py
 
 
 # user -> chatbot
- {'code' :200,
+ {
   'message' :  {    
                     'text': '서울',
                 },
@@ -341,7 +401,8 @@ python3 chatbot_builder.py
 }
 
 # chatbot -> user
- {'code' :200,
+{    
+  'code' :200,
   'message' :  [{    
                     'message_type': 'question',
                     'text': '언제?'
@@ -353,7 +414,7 @@ python3 chatbot_builder.py
 }
 
 # user -> chatbot
- {'code' :200,
+ {
   'message' :  {    
                     'text': '내일',
                 },
@@ -364,7 +425,8 @@ python3 chatbot_builder.py
 }
 
 # chatbot -> user
- {'code' :200,
+ {
+  'code' :200,
   'message' :  [{    
                     'message_type': 'result',
                     'text': '서울의 내일의 날씨는 맑음 입니다'

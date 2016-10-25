@@ -88,7 +88,6 @@ class Chatbot(object):
         self.question_list = []
         self.current_story = None
         self.process = []
-        #self.process.append(self.classify_query)
         self.process.append("classify_query")
 
         self.answer_dict = {}
@@ -106,12 +105,12 @@ class Chatbot(object):
 
         while True :
             current_task = self.process_string_dict[self.process[self.step_idx]]
-            msg = current_task(query)
+            msg_list = current_task(query)
             
-            if msg == 'next' :
+            if msg_list == 'next' :
                 continue
 
-            message['message'].append(msg) 
+            message['message'].extend(msg_list) 
             message['parameter'] = self.answer_dict
             return message
             
@@ -163,7 +162,9 @@ class Chatbot(object):
 
     def get_question(self,query):
 
+        msg_list = []
         msg = {
+                'template_type':'text',
                 'text': '',
                 'choice_list':[]
                 }
@@ -193,13 +194,18 @@ class Chatbot(object):
                 msg['text'] = current_question['question']
                 msg['choice_list'] = current_question['choice_list']
 
-            return msg
+            msg_list.append(msg)
+
+            return msg_list
 
 
     def get_result(self,query):
-        msg = {
-                'text': '',
-                }
+        #msg = {
+        #        'text': '',
+        #        'choice_list':[],
+        #        }
+
+        msg_list = []
 
         try:
             server_url = self.protocol +self.current_story['api_server_address']+':'+str(self.current_story['api_server_port'])
@@ -207,10 +213,17 @@ class Chatbot(object):
                 server_url += '/'+self.current_story['additional_path']
 
             result = requests.get(server_url+"/"+self.function_name, params=self.answer_dict)
+            
+            #msg['text'] =str(result.json())  
 
-            msg['text'] =str(result.json())  
+            msg_list.append(result.json())
 
         except Exception as e:
+            msg = {
+                    'text': '',
+                    'choice_list':[],
+                  }
+
             print("This function is not implemented yet")
             print("Please implement RESTful API for ["+self.function_name+"]")
 
@@ -218,11 +231,12 @@ class Chatbot(object):
 
             print(self.step_idx) 
             msg['text'] = str(e)  
+            msg_list.append(msg)
             print(e)
 
         self.init()
 
-        return msg
+        return msg_list
 
     def save(self, path):
         chatbot_data_dict = {

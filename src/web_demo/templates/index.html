@@ -1,6 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="RMRM SJ Module">
+    <meta name="author" content="Sung-ju Kim">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+ 
     <title>Nomad Connection Chatbot Demo</title>
 
     <!-- Bootstrap core CSS -->
@@ -13,6 +21,8 @@
     <!-- Custom styles for this template -->
 
     <link href="{{ url_for('static', filename = 'css/dashboard.css')}}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename = 'css/custom.css')}}" rel="stylesheet">
 
 
 
@@ -42,7 +52,9 @@
             });
 
             socket.on('response', function(msg) {
-                $('#log').append('<br>' + $('<div/>').text(msg.data).html());
+                //$('#log').append('<br>' + $('<div/>').text(msg.data).html());
+
+                $('#log').append('<br>' + $('<div/>').html(msg.data).html());
 
                 window.scrollTo(0,document.body.scrollHeight);
             });
@@ -69,15 +81,15 @@
     <nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:#4a4a4a;">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="navbar-brand" href="#" style="color:white;">Nomad Connection Chatbot</a>
+            <a class="navbar-brand" href="#" style="color:white;">Nomad Connection Chatbot Demo</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <!--<div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">업로드<span class="caret"></span></a> 
@@ -93,19 +105,23 @@
           <form id='search_form' class="navbar-form navbar-right">
             <input id='keyword' type="text" class="form-control" placeholder="검색...">
           </form>
-        </div>
+        </div>-->
       </div>
     </nav>
 
 
-    <h1>Nomad Connection Chatbot Demo</h1>
 
-    <p> 도움말이라고 쳐봐!</p>
+    <div class='jumbotron'> 도움말이라고 쳐보세오. 그리고 가끔 이상하게 대답이 뒤에 나올때 있으니까 이상할때는 새로고침 눌러르세오 안녕히계세오</div>
     <div id="log"></div>
 
-    <form id="emit" method="POST" action='#' class="form navbar-fixed-bottom">
+    <footer class="footer">
+    <form id="emit" method="POST" action='#' class="form input-group">
         <input type="text" class="form-control" name="emit_data" id="emit_data" placeholder="Message">
+        <span class="input-group-btn">
+        <button type="submit" class="btn btn-default">전송</button> 
+        </span>
     </form>
+    </footer>
 
 
 
@@ -124,3 +140,4 @@
     
 </body>
 </html>
+

@@ -37,6 +37,53 @@ chatbot_server_port = 6070
 chatbot_server_url = chatbot_server_protocol + chatbot_server_host + ':' + str(chatbot_server_port) + '/chatbotinstance'
                         
 
+
+def msg_to_generic_template(msg):
+    result = ''
+
+    element_list = msg['elements']
+
+    result += '<div>'
+
+    for elem in element_list:
+        result += '<a href="'+elem['item_url']+'" >'
+        result += '<div class="">'
+        result += '<h4>'+elem['title']+'</h4>'
+        result += '<p>'+elem['subtitle']+'</p>'
+        result += '<img width="200" height="200" class="img-responsive" src="'+elem['image_url']+'"/>' 
+
+        result += '</div>'
+        result += '</a>'
+
+    result += '</div>'
+
+    return result
+
+def msg_to_text_template(msg):
+
+    return msg['text']
+
+
+def msg_to_button_template(msg):
+    return msg['text']
+
+
+def make_proper_response(msg):
+    msg_type_function_dict = {
+                        'generic':msg_to_generic_template,
+                        'text':msg_to_text_template,
+                        'button':msg_to_button_template,
+                    }
+
+    template_maker = msg_type_function_dict[msg['template_type']]
+
+    result = template_maker(msg)
+
+    return result
+
+
+
+
 @app.route('/')
 def index():
     return render_template('index.html', async_mode=socketio.async_mode)
@@ -57,10 +104,15 @@ def talk(message):
     url = chatbot_server_url + '/' + '1234'
 
     msg_from_user['message']['text'] = message['data']
+
     msg_to_user= requests.post(url,json=msg_from_user).json()
     msg_to_user = dict(msg_to_user)
     print(msg_to_user)
-    msg_to_user['data'] = msg_to_user['message'][0]['text']
+
+    refined_msg_to_user = make_proper_response(msg_to_user['message'][0])
+
+    msg_to_user['data'] = refined_msg_to_user
+    #msg_to_user['data'] = msg_to_user['message'][0]['text']
 
     print("from chatbot server : "+  str(msg_to_user))
 
@@ -80,4 +132,4 @@ def test_disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app, port=6050,  debug=True)
+    socketio.run(app, host='0.0.0.0', port=6050,  debug=True)

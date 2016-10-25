@@ -1,22 +1,32 @@
-.custom_card {
-
-    margin-left: 30px;
-    padding-left:15px;
-
-    padding-right:15px;
-	width:300px;
-	height:200px;
-	background-color:#ffffff;
-	border-radius: 6px; 
-	border-style: solid ;
-    border-width: 1px;
-    border-color: #e7e7e7;
-    box-shadow: 0px 2px 5px #cdd1d3;
-    display:inline-block; 
-    position: relative;
-    text-align:left; 
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
 }
 
-.custom_card_container {
-    text-align:left; 
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
 }
