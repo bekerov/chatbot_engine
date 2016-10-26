@@ -286,13 +286,8 @@ curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_ti
 
 ``` 
 
-## Message communication
-```
 
-```
-
-
-+ http://xxx.xxx.xxx.xxx:yyyy/get_weather 에 GET 요청으로 location, date_time에 대한 값을 payload에 채워 요청하면 해당 결과를 반환한다. 
++ http://xxx.xxx.xxx.xxx:yyyy/get_weather  
 
 #### 4. 완성된 스토리를 제공하는 챗봇
 
