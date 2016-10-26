@@ -363,7 +363,7 @@ python3 chatbot_builder.py
 
 ### 메세지 템플릿
 
-```
++ text 템플릿
 
 ```json
 {
@@ -379,6 +379,9 @@ python3 chatbot_builder.py
 
 
 ``` 
+
++ generic 템플릿
+
 
 ```json
 {
@@ -413,6 +416,10 @@ python3 chatbot_builder.py
 
 
 ``` 
+
+
++ button 템플릿
+
 
 ```json
 {
