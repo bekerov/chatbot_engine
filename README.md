@@ -222,7 +222,7 @@ if __name__ == '__main__':
 curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_time=20160901_235959" -X GET
 ```
 
-+ 응답의 예
++ RESTful API 응답의 예
 
 ```json
 {    
@@ -361,6 +361,90 @@ python3 chatbot_builder.py
 
 ```
 
+### 메세지 템플릿
+
+```
+
+```json
+{
+  'code' :200,
+  'message' :  [{    
+                    'code': 200,
+                    'template_type':'text',
+
+                    'text': '오늘 대구의 날씨는 조금 흐림 입니다'
+                }]
+
+}
+
+
+``` 
+
+```json
+{
+  'code' :200,
+  'message' :  [{    
+                    'code': 200,
+                    'template_type':'generic'
+
+                    'elements':[
+                                  {
+                                    "title":"Welcome to Peter\'s Hats",
+                                    "item_url":"https://petersfancybrownhats.com",
+                                    "image_url":"https://petersfancybrownhats.com/company_image.png",
+                                    "subtitle":"We\'ve got the right hat for everyone.",
+                                    "buttons":[
+                                      {
+                                        "type":"web_url",
+                                        "url":"https://petersfancybrownhats.com",
+                                        "title":"View Website"h
+                                      },             
+                                      {
+                                        "type":"web_url",
+                                        "url":"https://petersfancybrownhats.com",
+                                        "title":"View Website"h
+                                      },            
+                                    ]
+                                  }
+                                ]
+                }]
+
+}
+
+
+``` 
+
+```json
+{
+  'code' :200,
+  'message' :  [{    
+                    'code': 200,
+                    'template_type':'button'
+
+                    'text': '다음 둘중 하나 골라보세요',
+
+                    "buttons":[
+                              {
+                                "type":"web_url",
+                                "url":"https://petersapparel.parseapp.com",
+                                "title":"Show Website"
+                              },
+                              {
+                                "type":"web_url",
+                                "url":"https://petersapparel.parseapp.com",
+                                "title":"Show Website2"
+                              },
+                            ]
+                }]
+
+}
+
+
+
+```
+
+### Example
+
 ```
 
 # user -> chatbot
@@ -381,11 +465,7 @@ python3 chatbot_builder.py
                     'choice_list': ['서울', '대구', '@text'],
                 }]
 
-  'parameter' : {
-                    'location':'None',
-                    'date_time':'None'
-                 }
-  }
+}
 
 
 
@@ -394,10 +474,6 @@ python3 chatbot_builder.py
   'message' :  {    
                     'text': '서울',
                 },
-  'parameter' : {
-                    'location':'None',
-                    'date_time':'None'
-                 }
 }
 
 # chatbot -> user
@@ -407,10 +483,6 @@ python3 chatbot_builder.py
                     'template_type':'text',
                     'text': '언제?'
                 }],
-  'parameter' : {
-                    'location':'서울',
-                    'date_time':'None'
-                 }
 }
 
 # user -> chatbot
@@ -418,10 +490,7 @@ python3 chatbot_builder.py
   'message' :  {    
                     'text': '내일',
                 },
-  'parameter' : {
-                    'location':'서울',
-                    'date_time':'None'
-                 }
+
 }
 
 # chatbot -> user
@@ -435,10 +504,6 @@ python3 chatbot_builder.py
                     'text': '오늘 대구의 날씨는 조금 흐림 입니다'
                     }
                 ],
-  'parameter' : {
-                    'location':'서울',
-                    'date_time':'20161020_000000'
-                 }
 }
 ```
 
