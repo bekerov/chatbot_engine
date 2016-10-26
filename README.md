@@ -376,7 +376,7 @@ python3 chatbot_builder.py
 {
   'code' :200,
   'message' :  [{    
-                    'message_type': 'question',
+                    'template_type':'text',
                     'text': '어디?',
                     'choice_list': ['서울', '대구', '@text'],
                 }]
@@ -404,7 +404,7 @@ python3 chatbot_builder.py
 {    
   'code' :200,
   'message' :  [{    
-                    'message_type': 'question',
+                    'template_type':'text',
                     'text': '언제?'
                 }],
   'parameter' : {
@@ -427,10 +427,14 @@ python3 chatbot_builder.py
 # chatbot -> user
  {
   'code' :200,
-  'message' :  [{    
-                    'message_type': 'result',
-                    'text': '서울의 내일의 날씨는 맑음 입니다'
-                }],
+  'message' :  [
+                  {    
+                    'code': 200,
+                    'template_type':'text',
+
+                    'text': '오늘 대구의 날씨는 조금 흐림 입니다'
+                    }
+                ],
   'parameter' : {
                     'location':'서울',
                     'date_time':'20161020_000000'
