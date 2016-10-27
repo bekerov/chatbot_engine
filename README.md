@@ -359,6 +359,7 @@ python3 chatbot_builder.py
 ### 메세지 템플릿
 
 + text 템플릿
+choice_list는 페이스북의 quick reply로 보여 주면 좋을 것 같습니다.
 
 ```json
 {
@@ -367,7 +368,8 @@ python3 chatbot_builder.py
                     'code': 200,
                     'template_type':'text',
 
-                    'text': '오늘 대구의 날씨는 조금 흐림 입니다'
+                    'text': '오늘 대구의 날씨는 조금 흐림 입니다',
+                    'choice_list' : []
                 }]
 
 }
@@ -484,6 +486,7 @@ python3 chatbot_builder.py
   'message' :  [{    
                     'template_type':'text',
                     'text': '언제?'
+                    'choice_list' : ['오늘','내일','@date_picker']
                 }],
 }
 
@@ -504,6 +507,7 @@ python3 chatbot_builder.py
                     'template_type':'text',
 
                     'text': '오늘 대구의 날씨는 조금 흐림 입니다'
+                    'choice_list' : []
                     }
                 ],
 }
