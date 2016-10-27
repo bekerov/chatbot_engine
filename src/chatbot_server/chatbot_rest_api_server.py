@@ -38,7 +38,7 @@ class WeatherProvider(Resource):
         result += location
         result += "의 날씨는 맑음 입니다."
 
-        result_dict = {"code": 200, "response": result}
+        result_dict = {"code": 200, "template_type":'text' , "text": result}
 
         return result_dict
 

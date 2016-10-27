@@ -2,7 +2,6 @@ envCE
 __pycache__
 *.log
 *.json
-*.pickle
 *.txt
 *.ipynb
 *.swp
