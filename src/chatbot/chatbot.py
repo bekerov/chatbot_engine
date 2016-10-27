@@ -2,7 +2,7 @@
 # Email : goddoe2@gmail.com
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 import pickle
 import json
 from pprint import pprint
@@ -78,7 +78,11 @@ class Chatbot(object):
         self.story_type_dict = story_type_dict
         self.named_entity_recognizer = named_entity_recognizer
 
+
     def init(self, query=None):
+
+        self.last_talk_date_time = datetime.now()
+
         self.step_idx = 0
         self.step_idx_max = 0
         self.question_idx= 0
@@ -95,13 +99,35 @@ class Chatbot(object):
 
         return "next"
 
+    def check_valid_time(self):
+        
+        now = datetime.now()
+
+        last_t = self.last_talk_date_time
+        #delta = timedelta(milliseconds=100)
+        delta = timedelta(minutes=5)
+        
+        if now > last_t+delta:
+            self.init()
+            print("="*50)
+            print("check_valid_time : reset")
+            print("="*50)
+        else:
+            self.last_talk_date_time = now
+
+            print("="*50)
+            print("check_valid_time : continue")
+            print("="*50)
+
+
     def talk(self, query):
+
+        self.check_valid_time()        
 
         message = {
                     'code' : 200,
                     'message':[],
-                    
-                }
+                    }
 
         while True :
             current_task = self.process_string_dict[self.process[self.step_idx]]
@@ -240,6 +266,8 @@ class Chatbot(object):
 
     def save(self, path):
         chatbot_data_dict = {
+
+                    'last_talk_date_time':  self.last_talk_date_time,
                     'step_idx' :self.step_idx,
                     'step_idx_max' : self.step_idx_max, 
                     'question_idx' : self.question_idx,
@@ -263,7 +291,7 @@ class Chatbot(object):
                 chatbot_data_dict = pickle.load(f)
 
             #pprint(chatbot_data_dict)
-
+            self.last_talk_date_time = chatbot_data_dict['last_talk_date_time']
             self.step_idx = chatbot_data_dict['step_idx']
             self.step_idx_max = chatbot_data_dict['step_idx_max']
             self.question_idx= chatbot_data_dict['question_idx']
