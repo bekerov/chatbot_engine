@@ -25,6 +25,7 @@ class Chatbot(object):
 
     def __init__(self):
         self.init()
+        self.timeout_limit = 3
 
         self.process_string_dict = { 
                                         "classify_query" : self.classify_query,
@@ -105,7 +106,7 @@ class Chatbot(object):
 
         last_t = self.last_talk_date_time
         #delta = timedelta(milliseconds=100)
-        delta = timedelta(minutes=5)
+        delta = timedelta(minutes=self.timeout_limit)
         
         if now > last_t+delta:
             self.init()
