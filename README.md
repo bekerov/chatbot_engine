@@ -92,20 +92,20 @@ choice : 오늘
 choice : 내일
 choice : @date_picker
 -------------------------
-{'parameter_list': [{'parameter_name': 'location',
-                     'parameter_type': 'location'},
-                    {'parameter_name': 'date_time',
-                     'parameter_type': 'date_time'}],
- 'query_list': [{'query': '오늘 날씨 어때?'}],
- 'question_list': [{'choice_list': ['서울', '대구', '@text'],
-                    'parameter': {'parameter_name': 'location',
-                                  'parameter_type': 'location'},
-                    'question': '어디야?'},
-                   {'choice_list': ['오늘', '내일', '@date_picker'],
-                    'parameter': {'parameter_name': 'date_time',
-                                  'parameter_type': 'date_time'},
-                    'question': '언제?'}],
- 'target_function': 'get_weather'}
+{"parameter_list": [{"parameter_name": "location",
+                     "parameter_type": "location"},
+                    {"parameter_name": "date_time",
+                     "parameter_type": "date_time"}],
+ "query_list": [{"query": "오늘 날씨 어때?"}],
+ "question_list": [{"choice_list": ["서울", "대구", "@text"],
+                    "parameter": {"parameter_name": "location",
+                                  "parameter_type": "location"},
+                    "question": "어디야?"},
+                   {"choice_list": ["오늘", "내일", "@date_picker"],
+                    "parameter": {"parameter_name": "date_time",
+                                  "parameter_type": "date_time"},
+                    "question": "언제?"}],
+ "target_function": "get_weather"}
 ==================================================
 
 ```
@@ -128,25 +128,25 @@ story
 # get_weather.json
 
 { 
-    'target_function': 'get_weather'
+    "target_function": "get_weather"
 
-    'parameter_list': [{'parameter_name': 'location',
-                         'parameter_type': 'location'},
-                        {'parameter_name': 'date_time',
-                         'parameter_type': 'date_time'}],
+    "parameter_list": [{"parameter_name": "location",
+                         "parameter_type": "location"},
+                        {"parameter_name": "date_time",
+                         "parameter_type": "date_time"}],
 
-    'query_list': [{'query': '오늘 날씨 어때?'}],
+    "query_list": [{"query": "오늘 날씨 어때?"}],
 
     
 
-    'question_list': [{'choice_list': ['서울', '대구', '@text'],
-                    'parameter': {'parameter_name': 'location',
-                                  'parameter_type': 'location'},
-                    'question': '어디야?'},
-                   {'choice_list': ['오늘', '내일', '@date_picker'],
-                    'parameter': {'parameter_name': 'date_time',
-                                  'parameter_type': 'date_time'},
-                    'question': '언제?'}],
+    "question_list": [{"choice_list": ["서울", "대구", "@text"],
+                    "parameter": {"parameter_name": "location",
+                                  "parameter_type": "location"},
+                    "question": "어디야?"},
+                   {"choice_list": ["오늘", "내일", "@date_picker"],
+                    "parameter": {"parameter_name": "date_time",
+                                  "parameter_type": "date_time"},
+                    "question": "언제?"}],
 }
 ```
 
@@ -171,7 +171,7 @@ from datetime import datetime
 app = Flask(__name__)
 api = Api(app)
 
-resource_name_list_path =os.environ['CE_SRC']+'/data/chatbot_info/resource_name_list.pickle'
+resource_name_list_path =os.environ["CE_SRC"]+"/data/chatbot_info/resource_name_list.pickle"
 
 
 def init_arg_parser():
@@ -190,8 +190,8 @@ class WeatherProvider(Resource):
     def get(self):
         args = parser.parse_args()
         print(args)
-        location = args['location']
-        date_time = args['date_time']
+        location = args["location"]
+        date_time = args["date_time"]
     
         date_time = datetime.strptime(date_time,"%Y%m%d_%H%M%S")
         result = ""
@@ -206,13 +206,13 @@ class WeatherProvider(Resource):
 
 
 parser = init_arg_parser()
-api.add_resource(WeatherProvider, '/get_weather')
+api.add_resource(WeatherProvider, "/get_weather")
 
 def main():
-    app.run(host='0.0.0.0',port=6000, debug=True)
+    app.run(host="0.0.0.0",port=6000, debug=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 ```   
 
@@ -226,25 +226,25 @@ curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_ti
 
 ```json
 {    
-    'code': 200,
-	'template_type':'text',
+    "code": 200,
+	"template_type":"text",
 
-    'text': '오늘 대구의 날씨는 조금 흐림 입니다'
+    "text": "오늘 대구의 날씨는 조금 흐림 입니다"
 }
 
 ``` 
 
 ```json
 {    
-    'code': 200,
-    'template_type':'generic'
+    "code": 200,
+    "template_type":"generic"
 
-    'elements':[
+    "elements":[
 				  {
-					"title":"Welcome to Peter\'s Hats",
+					"title":"Welcome to Peter\"s Hats",
 					"item_url":"https://petersfancybrownhats.com",
 					"image_url":"https://petersfancybrownhats.com/company_image.png",
-					"subtitle":"We\'ve got the right hat for everyone.",
+					"subtitle":"We\"ve got the right hat for everyone.",
 					"buttons":[
 					  {
 						"type":"web_url",
@@ -265,10 +265,10 @@ curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_ti
 
 ```json
 {    
-    'code': 200,
-    'template_type':'button'
+    "code": 200,
+    "template_type":"button"
 
-    'text': '다음 둘중 하나 골라보세요',
+    "text": "다음 둘중 하나 골라보세요",
 
     "buttons":[
               {
@@ -296,24 +296,24 @@ curl -v http://xxx.xxx.xxx.xxx:yyyy/get_weather -d "location=대구" -d "date_ti
 안녕!!
 뭘 원하니? : 오늘 서울 날씨 어때?
 response: 2016년 10월 06일 날씨 어때?
-{'end': datetime.datetime(2016, 10, 6, 23, 59, 59), 'start': datetime.datetime(2016, 10, 6, 0, 0)}
+{"end": datetime.datetime(2016, 10, 6, 23, 59, 59), "start": datetime.datetime(2016, 10, 6, 0, 0)}
 --------------------------------------------------
 어디야?
-['서울', '대구', '@text']
+["서울", "대구", "@text"]
 response : 서울
 --------------------------------------------------
 언제?
-['오늘', '내일', '@date_picker']
+["오늘", "내일", "@date_picker"]
 response : 20161006_000000
 **************************************************
-{'response': '2016년10월06일 서울의 날씨는 맑음 입니다.', 'code': 200}
+{"response": "2016년10월06일 서울의 날씨는 맑음 입니다.", "code": 200}
 ==================================================
 뭘 원하니? : 주식 알려줘
 response: 주식 알려줘
-{'end': datetime.datetime(2016, 10, 6, 23, 59, 59), 'start': datetime.datetime(2016, 10, 6, 0, 0)}
+{"end": datetime.datetime(2016, 10, 6, 23, 59, 59), "start": datetime.datetime(2016, 10, 6, 0, 0)}
 --------------------------------------------------
 주식 이름?
-['삼성전자', '엘지', '@text']
+["삼성전자", "엘지", "@text"]
 response : 삼성전자
 **************************************************
 This function is not implemented yet
@@ -326,7 +326,7 @@ Please implement RESTful API for [get_stock]
 
 ```
 어디야?
-['서울', '대구', '@text']
+["서울", "대구", "@text"]
 response : 서울
 ```
 
@@ -346,8 +346,8 @@ python3 chatbot_builder.py
 /POST /chatbotinstance/{userid}
 {
   
-  'message' :  {    
-                    'text': '날씨 알구싶어'
+  "message" :  {    
+                    "text": "날씨 알구싶어"
                 },
  
 }
@@ -363,13 +363,13 @@ choice_list는 페이스북의 quick reply로 보여 주면 좋을 것 같습니
 
 ```json
 {
-  'code' :200,
-  'message' :  [{    
-                    'code': 200,
-                    'template_type':'text',
+  "code" :200,
+  "message" :  [{    
+                    "code": 200,
+                    "template_type":"text",
 
-                    'text': '오늘 대구의 날씨는 조금 흐림 입니다',
-                    'choice_list' : []
+                    "text": "오늘 대구의 날씨는 조금 흐림 입니다",
+                    "choice_list" : []
                 }]
 
 }
@@ -382,17 +382,17 @@ choice_list는 페이스북의 quick reply로 보여 주면 좋을 것 같습니
 
 ```json
 {
-  'code' :200,
-  'message' :  [{    
-                    'code': 200,
-                    'template_type':'generic'
+  "code" :200,
+  "message" :  [{    
+                    "code": 200,
+                    "template_type":"generic"
 
-                    'elements':[
+                    "elements":[
                                   {
-                                    "title":"Welcome to Peter\'s Hats",
+                                    "title":"Welcome to Peter\"s Hats",
                                     "item_url":"https://petersfancybrownhats.com",
                                     "image_url":"https://petersfancybrownhats.com/company_image.png",
-                                    "subtitle":"We\'ve got the right hat for everyone.",
+                                    "subtitle":"We\"ve got the right hat for everyone.",
                                     "buttons":[
                                       {
                                         "type":"web_url",
@@ -420,12 +420,12 @@ choice_list는 페이스북의 quick reply로 보여 주면 좋을 것 같습니
 
 ```json
 {
-  'code' :200,
-  'message' :  [{    
-                    'code': 200,
-                    'template_type':'button'
+  "code" :200,
+  "message" :  [{    
+                    "code": 200,
+                    "template_type":"button"
 
-                    'text': '다음 둘중 하나 골라보세요',
+                    "text": "다음 둘중 하나 골라보세요",
 
                     "buttons":[
                               {
@@ -454,19 +454,19 @@ choice_list는 페이스북의 quick reply로 보여 주면 좋을 것 같습니
 # user -> chatbot
 
 {
-  'message' :  {    
-                    'text': '날씨 알구싶어'
+  "message" :  {    
+                    "text": "날씨 알구싶어"
                 }
 }
 
 
 # chatbot -> user
 {
-  'code' :200,
-  'message' :  [{    
-                    'template_type':'text',
-                    'text': '어디?',
-                    'choice_list': ['서울', '대구', '@text'],
+  "code" :200,
+  "message" :  [{    
+                    "template_type":"text",
+                    "text": "어디?",
+                    "choice_list": ["서울", "대구", "@text"],
                 }]
 
 }
@@ -475,39 +475,39 @@ choice_list는 페이스북의 quick reply로 보여 주면 좋을 것 같습니
 
 # user -> chatbot
  {
-  'message' :  {    
-                    'text': '서울',
+  "message" :  {    
+                    "text": "서울",
                 },
 }
 
 # chatbot -> user
 {    
-  'code' :200,
-  'message' :  [{    
-                    'template_type':'text',
-                    'text': '언제?'
-                    'choice_list' : ['오늘','내일','@date_picker']
+  "code" :200,
+  "message" :  [{    
+                    "template_type":"text",
+                    "text": "언제?"
+                    "choice_list" : ["오늘","내일","@date_picker"]
                 }],
 }
 
 # user -> chatbot
  {
-  'message' :  {    
-                    'text': '내일',
+  "message" :  {    
+                    "text": "내일",
                 },
 
 }
 
 # chatbot -> user
  {
-  'code' :200,
-  'message' :  [
+  "code" :200,
+  "message" :  [
                   {    
-                    'code': 200,
-                    'template_type':'text',
+                    "code": 200,
+                    "template_type":"text",
 
-                    'text': '오늘 대구의 날씨는 조금 흐림 입니다'
-                    'choice_list' : []
+                    "text": "오늘 대구의 날씨는 조금 흐림 입니다"
+                    "choice_list" : []
                     }
                 ],
 }
