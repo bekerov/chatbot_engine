@@ -161,9 +161,9 @@ class Chatbot(object):
 
         self.current_story = self.story_dict[function_name] 
 
-        parameter_name_list = [ item['parameter_name'] for item in self.current_story['parameter_list']] 
+        parameter_type_list = [ item['parameter_type'] for item in self.current_story['parameter_list']] 
         for key, value in entity_dict.items(): 
-            if value != None and key in parameter_name_list:
+            if value != None and key in parameter_type_list:
                 answer_dict[key] = value
 
         for i in range(len(question_list)):
