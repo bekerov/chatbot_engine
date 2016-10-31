@@ -132,9 +132,15 @@ class Chatbot(object):
         while True :
             current_task = self.process_string_dict[self.process[self.step_idx]]
             msg_list = current_task(query)
-            
+
+
+            print("="*50)
+            print(self.process)
+            print("step idx : "+str(self.step_idx))
+            print("question idx : "+str(self.question_idx))
             if msg_list == 'next' :
                 continue
+
 
             message['message'].extend(msg_list) 
             message['parameter'] = self.answer_dict
@@ -189,40 +195,48 @@ class Chatbot(object):
     def get_question(self,query):
 
         msg_list = []
-        msg = {
+        
+        
+        while self.question_idx < len(self.question_list): 
+            msg = {
                 'template_type':'text',
                 'text': '',
                 'choice_list':[]
                 }
-        
-        while True: 
+
             current_question = self.question_list[self.question_idx] 
             current_parameter_name = current_question['parameter']['parameter_name'] 
             self.current_question_parameter = current_question['parameter']['parameter_name'] 
-
+            
+            print("="*50)
+            print("current_question")
+            print(current_question)
             if current_parameter_name in self.answer_dict:
                 self.question_idx += 1
                 self.step_idx += 2
                 return 'next'
 
-            # if this question doesn't have choies
+            # if this question doesn't have choices
             if len(current_question['choice_list']) < 1:
 
                 self.question_idx += 1
                 self.step_idx += 2
                 msg['text'] = current_question['question']
                 msg['choice_list'] = current_question['choice_list']
-
+                msg_list.append(msg)
+                continue
+            
             else :
-
                 self.question_idx += 1
                 self.step_idx += 1
                 msg['text'] = current_question['question']
                 msg['choice_list'] = current_question['choice_list']
+                msg_list.append(msg)
+                print("="*50)
+                print(msg)
+                break
 
-            msg_list.append(msg)
-
-            return msg_list
+        return msg_list
 
 
     def get_result(self,query):

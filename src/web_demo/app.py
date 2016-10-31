@@ -109,9 +109,18 @@ def talk(message):
     msg_to_user = dict(msg_to_user)
     print(msg_to_user)
 
-    refined_msg_to_user = make_proper_response(msg_to_user['message'][0])
 
-    msg_to_user['data'] = refined_msg_to_user
+    result = ''
+
+    for msg in msg_to_user['message']:
+        result+= make_proper_response(msg)
+
+
+    #refined_msg_to_user = make_proper_response(msg_to_user['message'][0])
+
+
+    msg_to_user['data'] = result
+    #msg_to_user['data'] = refined_msg_to_user
     #msg_to_user['data'] = msg_to_user['message'][0]['text']
 
     print("from chatbot server : "+  str(msg_to_user))

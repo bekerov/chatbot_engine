@@ -48,7 +48,6 @@ class ChatbotBuilder(object):
                 print(story)
 
 
-
         # make train set
         sentence_list = []
         label_list  =[]
