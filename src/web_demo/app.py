@@ -114,6 +114,7 @@ def talk(message):
 
     for msg in msg_to_user['message']:
         result+= make_proper_response(msg)
+        result += '<br/>'
 
 
     #refined_msg_to_user = make_proper_response(msg_to_user['message'][0])
