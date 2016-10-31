@@ -113,7 +113,7 @@ def talk(message):
     result = ''
 
     for msg in msg_to_user['message']:
-        result+= make_proper_response(msg)
+        result += make_proper_response(msg)
         result += '<br/>'
 
 
