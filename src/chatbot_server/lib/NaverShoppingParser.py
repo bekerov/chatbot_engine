@@ -37,6 +37,9 @@ class NaverShoppingParser:
 
             if item.find('a', attrs={'class': 'a_link'}) is not None:
                 link = item.find('a', attrs={'class': 'a_link'}).get('href')
+                if link[0] =='/':
+                    link = "http://shopping.naver.com"+link
+
 
             items.append({
                 'title': name,
