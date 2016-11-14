@@ -46,7 +46,7 @@ class NaverShoppingParser:
                 'subtitle': price,
                 'image_url': image,
                 'item_url': link,
-                'button': [
+                'buttons': [
                             {
                                 'type':'web_url',
                                 'url':link,
