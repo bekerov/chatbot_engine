@@ -515,5 +515,5 @@ choice_list는 페이스북의 quick reply로 보여 주면 좋을 것 같습니
 
 ## Author
 + Author : Sung-ju Kim
-+ Email : sjkim@nomadconnection.com, goddoe2@gmail.com
++ Email : goddoe2@gmail.com
 + Blog : http://goddoe.github.com , http://labsj.tistory.com/
