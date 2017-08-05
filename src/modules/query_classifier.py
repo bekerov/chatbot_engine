@@ -72,20 +72,6 @@ class QueryClassifier(object):
         self.classifier.fit(train_x, train_y)
  
 
-    def read_txt_and_train(self, file_path, vocabulary_size=VOCABULARY_SIZE):
-
-        def read_data(path):
-            with open(path, "rt") as f:
-                lines = f.readlines();
-                result = []
-                for line in lines:
-                    result.append(self.tokenize(line))  
-            
-            return result
-
-        data_set = read_data(file_path)
-        self.train(data_set, vocabulary_size)
-
     def tokenize(self, doc):
         return [t[0] for t in self.pos_tagger.pos(doc, norm=True, stem=True)]
 
@@ -107,9 +93,9 @@ class QueryClassifier(object):
 
     def save(self, file_path=None):
         if file_path == None:
-            pass
-        else:
-            save_path = file_path
+            print("there is no file_path")
+            raise Exception
+        save_path = file_path
 
         save_data = {
                         'classifier' : self.classifier,
@@ -118,7 +104,6 @@ class QueryClassifier(object):
                     }
 
         with open(save_path, "wb") as f: 
-
             pickle.dump(save_data, f)
 
         return save_path
@@ -132,45 +117,43 @@ class QueryClassifier(object):
             self.reverse_dictionary = load_data['reverse_dictionary']
 
 
-def test_case_save_load_run():
-    import os 
+def test_train():
+    print("save_run test case : ...")
+    sentence_list = ["삼성전자 주가 알려줘",
+                    "엘지전자 주가 알려줘",
+                    "주식",
+                    "날씨 알려줘",
+                    "날씨",
+                    "오늘 날씨",]
+    label_list = [0,0,0,
+                    1,1,1]
 
-    def test_case_save_and_run():
-        print("save_run test case : ...")
-        query_classifier = QueryClassifier()
-        query_classifier.read_txt_and_train("./data/train.txt")
-        save_path = query_classifier.save()
+    query_classifier = QueryClassifier()
+    query_classifier.train(sentence_list,label_list,)
+    save_path = query_classifier.save("./trained.pickle")
 
-        test_case_query(query_classifier)
-        print("done!")
+    test_case_query(query_classifier)
+    print("done!")
 
-        return save_path
+    return save_path
 
-    def test_case_load_and_run(file_path):
-        print("load_run test case : ...")
-        query_classifier = QueryClassifier()
-        query_classifier.load(file_path)
+def test_case_load_and_run(file_path):
+    print("load_run test case : ...")
+    query_classifier = QueryClassifier()
+    query_classifier.load(file_path)
 
-        test_case_query(query_classifier)
+    test_case_query(query_classifier)
 
-        print("done!")
+    print("done!")
 
-    def test_case_query(query_classifier):
-        assert(query_classifier.classify("2015년 12월부터 3일까지 삼성전자 주식 알려줘") == 1)
-        assert(query_classifier.classify("요즘 엘지 주가 어떤지 아세요?") == 1)
-        assert(query_classifier.classify("현대 증권 주가 보여줘") == 1)
-        assert(query_classifier.classify("토니모리 요즘 주가 어때?") == 1)
-        assert(query_classifier.classify("대한민군 안녕하세요 뭘 테스트라고적지") == 0)
-        assert(query_classifier.classify("어느 순간 퇴근 하하하") == 0)
-        assert(query_classifier.classify("하하하하하 엘지 요즘 어떤지 아냐") == 0)
-        assert(query_classifier.classify("이상한 소리 들은것 같아 ㅋㅋㅋ") == 0)
-        assert(query_classifier.classify("다들 너무하시네 등을 돌릴 수가 있지?") == 0)
-        assert(query_classifier.classify("오늘 신문 보여줘") == 2)
-    data_path = test_case_save_and_run()
-    test_case_load_and_run(data_path)
-
-    #os.remove(data_path)
-
+def test_case_query(query_classifier):
+    assert(query_classifier.classify("2015년 12월부터 3일까지 삼성전자 주식 알려줘") == 0)
+    assert(query_classifier.classify("요즘 엘지 주가 어떤지 아세요?") == 0)
+    assert(query_classifier.classify("현대 증권 주가 보여줘") == 0)
+    assert(query_classifier.classify("토니모리 요즘 주가 어때?") == 0)
+    assert(query_classifier.classify("서울 날씨") == 1)
+    assert(query_classifier.classify("날씨") == 1)
+    print("pass test cases")
 
 if __name__ == '__main__':
-    test_case_save_load_run()
+    test_train()
